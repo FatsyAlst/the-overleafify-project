@@ -1,0 +1,86 @@
+\documentclass{beamer}
+
+% Carregando os pacotes
+\input{content/packages}
+\input{content/cabecalho&cores}
+
+% Informações que aparecem no rodapé do documento
+\title{Minicurso de \LaTeX{} \& Overleaf}
+\author{IEEE Student Branch USP São Carlos}
+%\institute{Documentando em \LaTeX{}}
+\date{23 de Setembro de 2025}
+
+%---------------------
+% INICIO DO DOCUMENTO
+%---------------------
+
+\begin{document}
+
+% Slide de título com logos nos cantos
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+% Slide de conteúdo
+\begin{frame}{Sumário}
+  \tableofcontents
+\end{frame}
+
+\begin{frame}{Drive do Minicurso}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/RickRoll.png}
+    \label{fig:rickroll}
+  \end{figure}
+
+\end{frame}
+
+\begin{frame}{Ops... Link correto}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/drive.png}
+    \label{fig:drive}
+  \end{figure}
+
+\end{frame}
+
+\AtBeginSection[]{% mostra em qual seção ele está atualmente
+  \begin{frame}{Sumário da seção}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% Incluindo as seções
+\include{sections/1_intro_latex}
+\include{sections/2_tipos_de_documentos}
+\include{sections/3_formatacao_texto}
+\include{sections/4_tabelas_figuras_matematica}
+\include{sections/5_bibliografia_citacoes}
+\include{sections/6_modelos&relatorio}
+\include{sections/7_exercicios}
+\include{sections/8_duvidas_dicas_finais}
+\include{sections/9_convite_sanca_week}
+
+\begin{frame}[c]
+  \centering
+  \textcolor{ieeeblue}{\LARGE\bfseries Obrigado pela atenção!} \\[1cm]
+
+  \textcolor{ieeeblue}{{\small Dúvidas? Entre em contato!} \\
+  \texttt{ieeeuspsc@gmail.com}}
+
+  \vfill
+
+  \begin{minipage}{0.3\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/ieee_logo.png}
+  \end{minipage}
+  \hspace{0.8cm}
+  \begin{minipage}{0.3\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/Logo IEEE - USP São Carlos.png}
+  \end{minipage}
+  \vspace{0.5cm} \\
+  \includegraphics[width=2cm]{images/logoSIEEL_preto.png}
+\end{frame}
+
+\end{document}

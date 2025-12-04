@@ -1,0 +1,47 @@
+\section{Bibliografia e citações}
+
+\begin{frame}{Bibliografia e citações}
+  \begin{block}{Principais Funções}
+
+    \begin{itemize}
+      \item O \LaTeX{} permite citar tabelas, figuras e fontes bibliográficas de forma automatizada e organizada.
+
+
+      \item Usa-se \texttt{\textbackslash label} para nomear a referencia dos objetos no texto, e um arquivo \texttt{.bib} para gerenciar as fontes bibliográficas.
+
+      \item Use \texttt{\textbackslash ref} para referenciar elementos numerados no documento, como figuras, tabelas, seções, equações etc e \texttt{\textbackslash cite} para citar fontes bibliográficas com base em um arquivo .bib.
+
+    \end{itemize}.
+
+  \end{block}
+\end{frame}
+
+\begin{frame}{Estilo de bibliografia}
+
+  A bibliografia é gerada automaticamente, mas só funciona para referências textuais.
+
+  \vspace{0.5em}
+  Use \texttt{\textbackslash bibliographystyle\{estilo\}} para selecionar o estilo de referencia. alguns deles são:
+
+  \begin{itemize}
+    \item plain: Numérico (padrão).
+    \item abnt: Normas ABNT (requer o pacote abntex2).
+    \item apa: Formato APA.
+    \item ieee: Padrão IEEE.
+  \end{itemize}
+  \vspace{0.5em}
+  Chame o arquivo \texttt{\textbackslash bibliography\{referencias\}} para incluir as referencias no arquivo main.tex
+\end{frame}
+
+\begin{frame}{Dicas para referencias}
+  \begin{itemize}
+    \item \textbf{Zotero + Better BibTeX}: Exporte referências diretamente para .bib.
+    \item \textbf{JabRef}: Editor gratuito para gerenciar arquivos .bib.
+    \item \textbf{DOI para BibTeX}: Sites como \href{https://www.doi2bib.org/}{doi2bib} convertem DOIs em entradas BibTeX.
+    \item Erros comuns:
+      \begin{itemize}
+        \item Referência não aparece: Verifique se a chave em  \texttt{\textbackslash cite\{citação\}} corresponde à entrada no arquivo .bib.
+        \item Estilo incorreto: Confira se o estilo desejado e adequado está instalado.
+      \end{itemize}
+  \end{itemize}
+\end{frame}

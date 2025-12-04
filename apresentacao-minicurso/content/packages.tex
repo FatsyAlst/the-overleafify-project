@@ -1,0 +1,38 @@
+% Tema
+\usetheme{Madrid}
+
+% Pacotes adicionais
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[brazilian]{babel}
+\usepackage{subcaption}
+\usepackage{verbatim}
+\usepackage{tabularx} % Tabelas com largura ajustável
+
+\usepackage{xspace}  % Carrega o pacote xspace, que insere automaticamente um espaço após macros
+\newcommand{\LaTeXcmd}{\LaTeX\xspace} % Define \LaTeXcmd como um atalho para \LaTeX, e usa \xspace para adicionar um espaço quando o próximo caractere for alfanumérico, evitando precisar escrever {} ou \, toda vez.
+\newcommand{\TeXcmd}{\TeX\xspace} % Define \TeXcmd análogo a \LaTeXcmd, mas para o logo \TeX.
+
+% AMBIENTE PARA CÓDIGO-FONTE
+%--------------------------------------------------------
+\usepackage{listings} % Permite incluir e formatar código-fonte
+    \lstset{
+        language=tex,               % Linguagem usada no código (aqui: LaTeX)
+        basicstyle=\ttfamily\small, % Fonte monoespaçada pequena
+        commentstyle=\color{gray},  % Cor dos comentários
+        frame=single,               % Moldura em volta do código
+        breaklines=true,            % Quebra linhas automaticamente
+        captionpos=b                % Posição da legenda (b = abaixo)
+    }
+
+\renewcommand{\lstlistingname}{Código} % Muda o nome padrão de "Listing" para "Código"
+
+    % Suporte para acentuação correta dentro do ambiente de código
+    % Resolve um tipo de erro bem especifico em blocos de codigo
+    \lstset{
+        literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+                 {ã}{{\~a}}1 {õ}{{\~o}}1 {â}{{\^a}}1 {ê}{{\^e}}1 {ô}{{\^o}}1
+                 {À}{{\`A}}1 {à}{{\`a}}1 {ü}{{\"u}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1
+                 {ö}{{\"o}}1
+    }

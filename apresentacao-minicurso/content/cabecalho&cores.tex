@@ -1,0 +1,39 @@
+% Definindo novas cores
+
+\definecolor{ieeeblue}{RGB}{0,98,155}
+\definecolor{darkteal}{RGB}{0,115,119}
+\definecolor{darkblue}{RGB}{0,40,85}
+\definecolor{black}{RGB}{0,0,0}
+
+% Aplicando as cores ao tema
+\setbeamercolor{structure}{fg=ieeeblue} % títulos, bullets etc.
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{frametitle}{bg=ieeeblue, fg=white}
+\setbeamercolor{item}{fg=ieeeblue}
+\setbeamercolor{footline}{bg=darkblue, fg=white}
+\setbeamercolor{author in head/foot}{fg=white}
+\setbeamercolor{title in head/foot}{fg=white}
+\setbeamercolor{normal text}{fg=black, bg=white}
+
+% Cabeçalho 
+
+% Adiciona as logos nos cantos
+\titlegraphic{%
+  \vfill
+  \includegraphics[width=2.5cm]{images/ieee_logo.png}\hspace{0.8cm}%
+  \includegraphics[width=3cm]{images/Logo IEEE - USP São Carlos.png}\\%\\)
+  \vspace{0.5cm}
+  \includegraphics[width=2cm]{images/logoSIEEL_preto.png}
+}
+
+%\setbeamercolor{section in head/foot}{bg=darkblue, fg=white} %cor do cabeçalho
+\setbeamertemplate{headline}{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex,center]{section in head/foot}
+      \textbf{\insertsection} % ou \inserttitle para mostrar o título do slide
+    \end{beamercolorbox}%
+  }
+  \vskip0pt
+}
+

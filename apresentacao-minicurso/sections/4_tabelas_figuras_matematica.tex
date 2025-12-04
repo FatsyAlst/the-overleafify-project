@@ -1,0 +1,203 @@
+\section{Tabelas, figuras e expressões matemáticas}
+
+% -----------
+% Tabelas – conteúdo original abaixo
+% -----------
+
+\begin{frame}[fragile]{Tabelas básicas com \texttt{tabular}}
+\begin{lstlisting}[language=tex]
+\begin{tabular}{|c|c|c|}
+    \hline
+    Nome & Idade & Cidade \\
+    \hline
+    João & 25 & SP \\
+    Maria & 30 & RJ \\
+    \hline
+\end{tabular}
+\end{lstlisting}
+
+  \begin{block}{Exemplo de tabela com \texttt{tabular}}
+    \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      Nome & Idade & Cidade \\
+      \hline
+      João & 25 & SP \\
+      Maria & 30 & RJ \\
+      \hline
+    \end{tabular}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}{Tipos de colunas}
+  \begin{block}{Argumentos para tipos de colunas}
+    \begin{itemize}
+      \item \texttt{l}: alinhado à esquerda
+      \item \texttt{c}: centralizado
+      \item \texttt{r}: alinhado à direita
+      \item \texttt{p\{largura\}}: largura fixa
+      \item \texttt{|}: bordas verticais
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Exemplo com alinhamento}
+    \centering
+    \begin{tabular}{l r p{4cm}}
+      Nome (esquerda) & Preço (direita) & Descrição (largura fixa) \\
+      \hline
+      Livro & R\$ 50,00 & Um livro sobre \LaTeX{} \\
+      Caneta & R\$ 2,50 & Caneta azul \\
+    \end{tabular}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Largura ajustável: \texttt{tabularx}}
+\begin{lstlisting}[language=tex]
+\usepackage{tabularx}
+\centering
+\begin{tabularx}{\textwidth}{|X|c|r|} % Colunas X dividem o espaço igualmente
+    \hline
+    Cabeçalho 1 & Cabeçalho 2 & Cabeçalho 3 \\
+    \hline
+    Texto longo que se ajusta automaticamente & Dado 2 & Dado 3 \\
+    \hline
+\end{tabularx}
+\end{lstlisting}
+
+  \begin{block}{Exemplo de tabela com \texttt{tabularx}}
+    \centering
+    \begin{tabularx}{\textwidth}{|X|c|r|} % Colunas X dividem o espaço igualmente
+      \hline
+      Cabeçalho 1 & Cabeçalho 2 & Cabeçalho 3 \\
+      \hline
+      Texto longo que se ajusta automaticamente & Dado 2 & Dado 3 \\
+      \hline
+    \end{tabularx}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}{Linhas, bordas e mesclagem}
+
+  \begin{block}{Linhas horizontais e verticais}
+    \begin{itemize}
+      \item \texttt{\textbackslash hline}: Linha horizontal
+      \item {cline\{i-j\}}: Linha horizontal parcial
+      \item \texttt{|}: Bordas verticais (ex: \texttt{|c|c|c|})
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Mesclando células}
+    \begin{itemize}
+      \item \texttt{\textbackslash multicolumn\{n\}\{alinhamento\}\{Título\}}: Mescla colunas
+      \item \texttt{\textbackslash multirow\{n\}\{largura\}\{text\}}: Mescla linhas (requer o pacote \texttt{multirow}
+      \end{itemize}
+    \end{block}
+
+  \end{frame}
+
+  \begin{frame}[fragile]{Linhas, bordas e mesclagem}
+
+\begin{lstlisting}[language=tex]
+    \begin{center}
+        \begin{tabular}{|l|c|r|}
+            \hline
+            \multicolumn{3}{|c|}{Título da Tabela} \\
+            \hline
+            Item & Quantidade & Preço \\
+            \cline{1-2} % Linha parcial
+            Livro & 2 & R\$ 100,00 \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{lstlisting}
+
+    \begin{block}{Exemplo}
+      \begin{center}
+        \begin{tabular}{|l|c|r|}
+          \hline
+          \multicolumn{3}{|c|}{Título da Tabela} \\
+          \hline
+          Item & Quantidade & Preço \\
+          \cline{1-2} % Linha parcial
+          Livro & 2 & R\$ 100,00 \\
+          \hline
+        \end{tabular}
+      \end{center}
+    \end{block}
+
+  \end{frame}
+
+  % -----------
+  % FIGURAS – para classes gerais (article, report, etc)
+  % -----------
+
+  \begin{frame}[fragile]{Inserindo figurar som o pacote \texttt{graphicx}}
+    O pacote \texttt{graphicx} é \textbf{essencial} para inserir imagens em \LaTeX{}.
+
+    Para carregar, coloque no pre-âmbulo:
+    \begin{lstlisting}[language=tex]
+      \usepackage{graphicx} % Sempre adicione isso!
+    \end{lstlisting}
+
+    Formatos suportados: \texttt{PNG}, \texttt{JPG}, \texttt{PDF}. (Evite \texttt{SVG} direto.)
+  \end{frame}
+
+  \begin{frame}[fragile]{Inserindo uma imagem}
+    Use \texttt{\textbackslash includegraphics} para adicionar uma imagem:
+    \begin{lstlisting}[language=tex]
+      \includegraphics[width=0.5\textwidth]{caminho/para/imagem.png}
+    \end{lstlisting}
+  \end{frame}
+
+  \begin{frame}[fragile]{Redimensionamento e rotação}
+    \begin{itemize}
+      \item Largura fixa: \texttt{width=8cm}
+      \item Altura fixa: \texttt{height=4cm}
+      \item Escala proporcional: \texttt{scale=0.7}
+    \end{itemize}
+    \begin{lstlisting}[language=tex, caption=Customizando tamanho e ângulo]
+      \includegraphics[width=5cm, angle=30]{imagem.jpg}
+    \end{lstlisting}
+  \end{frame}
+
+  \begin{frame}[fragile]{Ambiente figure: legenda e referência}
+    O ambiente \texttt{figure} permite posicionamento, legenda e referência:
+    \begin{lstlisting}[language=tex, caption=Imagem com legenda e referência]
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.4\textwidth]{caminho/para/imagem}
+        \caption{Legenda opcional}
+        \label{fig:exemplo}
+      \end{figure}
+    \end{lstlisting}
+  \end{frame}
+
+  % --------------------------
+  % Modos matemáticos (básico)
+  % --------------------------
+
+  \begin{frame}{Modos matemáticos no \LaTeX{}}
+    \begin{itemize}
+      \item \textbf{Inline (no texto):} Use \texttt{\textbackslash(...\textbackslash)}| ou \texttt{\$...\$}.
+      \item \textbf{Display (destacado):} Use \texttt{\textbackslash[...\textbackslash]} ou \texttt{\$\$...\$\$}.
+    \end{itemize}
+
+    \begin{block}{Exemplo inline}
+      A equação $E = mc^2$ foi proposta por Einstein.
+    \end{block}
+    \begin{block}{Exemplo display}
+      Equação proposta por Einstein: \[E = mc^2\]
+    \end{block}
+
+    \begin{block}{Equação referenciada}
+      Lei Circuital de Ampère
+      \begin{equation}
+        \oint B \,\cdot\, dl \,=\, \mu\sum_{k=1}^{n} i_k \,=\, \mu I
+      \end{equation}
+    \end{block}
+
+    \vspace{1em}
+    Veja o PDF de símbolos matemáticos no drive do minicurso. No livro, este tema é explorado em muito mais detalhes!
+  \end{frame}
