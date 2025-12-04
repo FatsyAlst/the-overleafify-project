@@ -189,14 +189,14 @@ the-overleafify-project/
   <tr>
     <td align="center">
       <a href="https://github.com/FatsyAlst">
-        <img src="https://github.com/FatsyAlst.png" width="100px;" alt="Felipe Silva" style="border-radius:50%"/><br />
+        <img src="https://github.com/FatsyAlst.png" width="100px;" alt="Felipe Silva"/><br />
         <sub><b>Felipe Silva</b></sub>
       </a><br />
       <sub>Co-autor & Instrutor</sub>
     </td>
     <td align="center">
       <a href="https://github.com/YuriThadeu">
-        <img src="https://github.com/YuriThadeu.png" width="100px;" alt="Yuri Thadeu" style="border-radius:50%"/><br />
+        <img src="https://github.com/YuriThadeu.png" width="100px;" alt="Yuri Thadeu"/><br />
         <sub><b>Yuri Thadeu</b></sub>
       </a><br />
       <sub>Co-autor & Instrutor</sub>
