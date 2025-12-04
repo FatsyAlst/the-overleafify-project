@@ -1,0 +1,110 @@
+\chapter{Tipos de documentos e estruturas}\label{cap:1_typer_doc_struct}
+
+\chapterquote{''O \LaTeX{} é a ferramenta perfeita para dar forma às suas ideias.''}{Leslie Lamport}
+
+O LaTeX fornece diferentes classes de documentos, cada uma projetada para atender a necessidades específicas, como artigos científicos, monografias e livros. Escolher a classe correta é fundamental para garantir que o documento siga padrões adequados de formatação e estruturação. O sistema de classes foi definido inicialmente por Leslie Lamport em sua documentação oficial \cite{lamport1994latex}.
+
+% --------
+
+\section{Classes de documentos no \LaTeX{}}
+\label{sec:cap1_classes_de_documentos_no_latex} % Referência cruzada para esta seção
+
+O \LaTeX{} oferece diferentes classes de documentos para atender a diversos propósitos. As principais são:
+\begin{enumerate}
+    \item \verb|article|: Ideal para artigos científicos, relatórios curtos e documentos simples.
+    \begin{lstlisting}[language=tex]
+    \documentclass[a4paper, 12pt]{article} % Tamanho A4, fonte 12pt
+    \end{lstlisting}
+    \item \verb|report|: Usado para relatórios técnicos, monografias ou documentos com capítulos.
+    \begin{lstlisting}[language=tex]
+    \documentclass[a4paper, 12pt]{report}
+    \end{lstlisting}
+    \item \verb|book|: Projetado para livros, teses e dissertações, com suporte a capítulos, partes e elementos pré-textuais.
+    \begin{lstlisting}[language=tex]
+    \documentclass[a4paper, 12pt]{book}
+    \end{lstlisting}
+    \item \verb|beamer|: Para criar apresentações de slides.
+    \begin{lstlisting}[language=tex]
+    \documentclass{beamer}
+    \end{lstlisting}
+\end{enumerate}
+
+\section{Estrutura básica de um documento}
+Todo documento em \LaTeX{} possui três partes principais:
+\begin{enumerate}
+    \item \textbf{Pré-âmbulo}: Define a classe, pacotes e configurações globais.
+    \item \textbf{Corpo}: Contém o conteúdo visível do documento.
+    \item \textbf{Pós-âmbulo} (opcional): Inclui apêndices, glossários ou índices.
+\end{enumerate}
+
+\begin{lstlisting}[language=tex, caption=Exemplo de estrutura mínima]
+    \documentclass{article} % Pré-âmbulo
+    \begin{document}         % Início do corpo
+        Olá, mundo!          % Conteúdo
+    \end{document}           % Fim do corpo
+    \appendix       % Pós-âmbulo
+\end{lstlisting}
+
+\section{Elementos específicos por classe}
+
+\subsection{Artigo (\texttt{article})}
+\begin{itemize}
+    \item Capa simples, resumo (\textit{abstract}), seções (sem capítulos)
+    \begin{lstlisting}[language=tex, caption=Exemplo de artigo]
+    \documentclass{article}
+    \title{Meu Artigo}
+    \author{Fulano}
+    \date{\today}
+    \begin{document}
+        \maketitle
+        \begin{abstract}
+            Resumo do artigo...
+        \end{abstract}
+        \section{Introdução}
+            Texto da introdução...
+    \end{document}
+    \end{lstlisting}
+\end{itemize}
+
+\subsection{Livro (\texttt{book})}
+
+\begin{itemize}
+    \item Divisão clara entre elementos pré-textuais (\verb|\frontmatter|) e o corpo (\verb|\mainmatter|).
+    \begin{lstlisting}[language=tex, caption=Exemplo de livro]
+    \documentclass{book}
+    \title{Meu Livro}
+    \author{Fulano}
+    \begin{document}
+        \frontmatter       % Pré-texto (numeração romana)
+            \maketitle
+            \tableofcontents
+        \mainmatter        % Corpo (numeração arábica)
+            \chapter{Introdução}
+                Texto...
+    \end{document}
+    \end{lstlisting}
+\end{itemize}
+
+\section{Geometria da página}
+
+Use o pacote \verb|geometry| para ajustar margens:
+
+\begin{lstlisting}[language=tex, caption=Ajuste das margens com o pacote \texttt{geometry}]
+    \usepackage[top=3cm, left=3cm, right=2cm, bottom=2cm]{geometry}
+\end{lstlisting}
+
+\section{Dicas práticas}
+
+\begin{itemize}
+    \item Pacotes essenciais:
+    \begin{lstlisting}[language=tex, caption=Pacotes mais fundamentais]
+    \usepackage[brazilian]{babel}     % Traduz termos para português
+    \usepackage[utf8]{inputenc}      % Suporte a acentuação
+    \usepackage{amsmath}             % Fórmulas matemáticas
+    \end{lstlisting}
+    \item Erros comuns:
+    \begin{itemize}
+        \item Não fechar ambientes (\verb|\begin{document} ...\end{document}|).
+        \item Usar \verb|\chapter| em classes que não suportam (como \verb|article|).
+    \end{itemize}
+\end{itemize}

@@ -1,0 +1,244 @@
+\chapter{Layouts profissionais}
+\label{cap:7_layout_profissional}
+
+\chapterquote{``A simplicidade é o último grau de sofisticação.''}{Leonardo da Vinci}
+
+Um layout bem estruturado melhora significativamente a legibilidade e a apresentação de documentos acadêmicos e técnicos. O \LaTeX{} oferece diversas ferramentas para personalizar margens, cabeçalhos, rodapés e espaçamento de texto. Este capítulo explora as principais configurações para criar documentos com um layout profissional e visualmente organizado.
+
+% --------
+
+\section{Controle de geometria da página}
+\label{sec:cap7_controle_de_geometria_da_página} % Referência cruzada para esta seção
+
+Use o pacote \verb|geometry| para ajustar margens, cabeçalhos e rodapés:
+
+\begin{lstlisting}[language=tex, caption=Configuração da geometria das páginas]
+    \usepackage[top=3cm, bottom=2.5cm, left=3cm, right=2cm, headheight=15pt]{geometry}
+\end{lstlisting}    
+
+Parâmetros úteis:
+\begin{itemize}
+    \item \verb|includeheadfoot|: Inclui cabeçalho/rodapé no cálculo das margens.
+    \item \verb|landscape|: Modo paisagem (\verb|\usepackage{pdflscape}| para páginas específicas).
+\end{itemize}
+
+\section{Cabeçalhos e rodapés personalizados}
+
+Use o pacote \verb|fancyhdr| para designs avançados:
+
+\begin{lstlisting}[language=tex, caption=Usando o pacote \texttt{fancyhdr} para personalização de estilo]
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhf{} % Limpa estilos padrão
+    \rhead{\textit{Nome do Documento}} 
+    \lfoot{\thepage}
+    \rfoot{\today}
+    \renewcommand{\headrulewidth}{1pt} % Linha no cabeçalho
+\end{lstlisting}   
+
+Estilos diferentes para páginas específicas:
+
+\begin{lstlisting}[language=tex, caption=Estilizando páginas específicas]
+    \fancypagestyle{plain}{ % Estilo para páginas de capítulo
+        \fancyhf{}
+        \rfoot{Página \thepage}
+    }
+\end{lstlisting}   
+
+\section{Personalização de títulos e seções}
+
+\begin{lstlisting}[language=tex, caption=Pacote \texttt{titlesec} para alterar títulos e seções]
+    \usepackage{titlesec}
+    \titleformat{\section}[block] % Formato do título
+        {\bfseries\Large\color{blue}} % Fonte
+        {\thesection} % Rótulo
+        {1em} % Espaço entre rótulo e título
+        {} 
+    
+    \titlespacing{\section}{0pt}{12pt}{6pt} % Espaçamento: esquerda, acima, abaixo
+\end{lstlisting}  
+
+\section{Fontes e tipografia}
+
+\begin{itemize}
+    \item Pacotes de fontes:
+    \begin{lstlisting}[language=tex, caption=Pacotes de fontes mais usados]
+    \usepackage{lmodern}       % Latin Modern (padrão aprimorado)
+    \usepackage{kpfonts}       % Fonte Kepler (estilo clássico)
+    \usepackage{roboto}        % Fonte moderna (requer XeLaTeX/LuaLaTeX)
+    \end{lstlisting} 
+    
+    \item Configuração global:
+    \begin{lstlisting}[language=tex, caption=Fonte padrão para o documento]
+    \renewcommand{\familydefault}{\sfdefault} % Muda fonte padrão para sans-serif
+    \end{lstlisting}      
+\end{itemize}
+
+\section{Cores temáticas}
+
+Use o pacote \verb|xcolor| para definir esquemas de cores:
+
+\begin{lstlisting}[language=tex, caption=Alterando a cores de títulos e seções]
+    \definecolor{corprimaria}{RGB}{0, 102, 204} % Azul institucional
+    \definecolor{cortitulo}{HTML}{800080}       % Roxo em hexadecimal
+    
+    % Aplicação em títulos:
+    \titleformat{\chapter}{\color{cortitulo}\Huge\bfseries}{\thechapter}{1em}{}
+\end{lstlisting}
+
+\section{Caixas e destaques}
+
+Crie caixas estilizadas com \verb|mdframed| ou \verb|tcolorbox|:
+
+\begin{lstlisting}[language=tex, caption=Exemplo de caixa de destaque]
+    \usepackage{tcolorbox}
+    \newtcolorbox{caixadestaque}{
+        colback=blue!10!white, % Cor de fundo
+        colframe=blue!50!black, % Cor da borda
+        arc=4pt, % Arredondamento
+        boxrule=1.5pt % Espessura da borda
+    }
+    
+    % Uso:
+    \begin{caixadestaque}
+        Texto destacado aqui.
+    \end{caixadestaque}
+\end{lstlisting}
+
+\newtcolorbox{caixadestaque}{
+    colback=blue!10!white, % Cor de fundo
+    colframe=blue!50!black, % Cor da borda
+    arc=4pt, % Arredondamento
+    boxrule=1.5pt % Espessura da borda
+}
+
+% Uso:
+\begin{caixadestaque}
+    Texto destacado aqui.
+\end{caixadestaque}
+
+\section{Ambientes personalizados}
+
+Crie ambientes para teoremas, exemplos ou definições:
+
+\begin{lstlisting}[language=tex, caption=Caixa de destaque simples para teorema]
+    \usepackage{amsthm}
+    \newtheorem{teorema}{Teorema}[section] % Numeração por seção
+    
+    % Uso:
+    \begin{teorema}[Pitágoras]
+        Em um triângulo retângulo, \(a^2 + b^2 = c^2\).
+    \end{teorema}
+\end{lstlisting}
+
+\newtheorem{teorema1}{Teorema}[section] % Numeração por seção
+
+% Uso:
+\begin{teorema1}[Pitágoras]
+    Em um triângulo retângulo, \(a^2 + b^2 = c^2\).
+\end{teorema1}
+
+Você pode se aprofundar bastante aqui. Veja os exemplos abaixo:
+
+\begin{tcolorbox}[enhanced,
+colback=red!10!white,colframe=red!75!black,
+colbacktitle=red!50!yellow,fonttitle=\bfseries,
+frame hidden,
+title=Meu título,
+boxrule=0pt,titlerule=1mm,
+titlerule style=red!50!black ]
+Esta é uma \textbf{tcolorbox}.
+\end{tcolorbox}
+
+\begin{tcolorbox}[tile,flip title={sharp corners},
+title=Meu título,colback=red!10,
+colbacktitle=red!75!black]
+Esta é uma \textbf{tcolorbox}.
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced,title=Meu título,
+attach boxed title to bottom*]
+Esta é uma \textbf{tcolorbox}.
+\end{tcolorbox} 
+
+\begin{tcolorbox}[enhanced,title=Meu título,
+attach boxed title to top center={yshift*=-3mm},
+boxed title style={size=small,colback=blue}]
+Esta é uma \textbf{tcolorbox}.
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced,title=Meu título,
+colframe=red!50!black,colback=red!10!white,
+arc=1mm,colbacktitle=red!10!white,
+fonttitle=\bfseries,coltitle=red!50!black,
+attach boxed title to top text left=
+{yshift=-0.50mm},
+boxed title style={skin=enhancedfirst jigsaw,
+size=small,arc=1mm,bottom=-1mm,
+interior style={fill=none,
+top color=red!30!white,
+bottom color=red!20!white}}]
+Esta é uma \textbf{tcolorbox}.
+\end{tcolorbox}
+
+% \usepackage{varwidth}
+\newtcolorbox{mybox1}[2][]{enhanced,skin=enhancedlast jigsaw,
+attach boxed title to top left={xshift=-4mm,yshift=-0.5mm},
+fonttitle=\bfseries\sffamily,varwidth boxed title=0.7\linewidth,
+colbacktitle=blue!45!white,colframe=red!50!black,
+interior style={top color=blue!10!white,bottom color=red!10!white},
+boxed title style={empty,arc=0pt,outer arc=0pt,boxrule=0pt},
+underlay boxed title={
+\fill[blue!45!white] (title.north west) -- (title.north east)
+-- +(\tcboxedtitleheight-1mm,-\tcboxedtitleheight+1mm)
+-- ([xshift=4mm,yshift=0.5mm]frame.north east) -- +(0mm,-1mm)
+-- (title.south west) -- cycle;
+\fill[blue!45!white!50!black] ([yshift=-0.5mm]frame.north west)
+-- +(-0.4,0) -- +(0,-0.3) -- cycle;
+\fill[blue!45!white!50!black] ([yshift=-0.5mm]frame.north east)
+-- +(0,-0.3) -- +(0.4,0) -- cycle; },
+title={#2},#1}
+\begin{mybox1}{Meu título}
+\lipsum[2]
+\end{mybox1}
+
+\newtcolorbox{mybox2}[1]{hbox boxed title,
+enhanced,attach boxed title to top center=
+{yshift=-3mm,yshifttext=-1mm},
+boxed title style={size=small,colback=red},
+title={#1}}
+\begin{mybox2}{Título curto}
+Esta é uma \textbf{tcolorbox}.
+\end{mybox2}\bigskip
+\begin{mybox2}{Este não é um título tão curto}
+Esta é uma \textbf{tcolorbox}.
+\end{mybox2}
+
+\begin{tcolorbox}[drop shadow southeast,
+enhanced,colback=red!5!white,colframe=red!75!black]
+Esta é uma \textbf{tcolorbox}.
+\end{tcolorbox}
+
+\newtcolorbox{mybox3}[1][]{enhanced,
+fuzzy shadow={1.0mm}{-1.0mm}{0.12mm}{0mm}{blue!50!white},
+fuzzy shadow={-1.0mm}{-1.0mm}{0.12mm}{0mm}{red!50!white},
+fuzzy shadow={-1.0mm}{1.0mm}{0.12mm}{0mm}{green!50!white},
+fuzzy shadow={1.0mm}{1.0mm}{0.12mm}{0mm}{yellow!50!white},#1
+}
+\begin{mybox3}[title=Uma caixa de múltiplas sombras]
+Esta é uma \textbf{tcolorbox}.
+\end{mybox3}
+
+Esses são apenas alguns exemplos retirados da \href{https://www.tug.org/docs/latex/tcolorbox/tcolorbox.pdf}{documentação do pacote \texttt{tcolorbox}}. Existem muitos outros modelos feitos pela comunidade, além de várias outras aplicações e usos desse pacote.
+
+\section{Dicas práticas}
+
+\begin{itemize}
+    \item Consistência: Defina um arquivo \verb|.sty| com todas as personalizações para reutilização.
+    \item Templates: Use \href{https://www.overleaf.com/latex/templates}{modelos do Overleaf} como base.
+    \item Evite excessos: Priorize clareza e normas da instituição.
+\end{itemize}
+
+\bigskip
+\noindent\textbf{Transição para o próximo capítulo:}\\[1ex]
+Agora que você aprendeu a criar layouts profissionais, aprimorando a apresentação e o design dos seus documentos, no Capítulo~\ref{cap:8_graf_diagra} vamos explorar a criação de gráficos e diagramas, ferramentas essenciais para a visualização e organização dos dados.

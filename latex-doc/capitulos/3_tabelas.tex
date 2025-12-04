@@ -1,0 +1,213 @@
+\chapter{Criação de tabelas}
+\label{cap:3_tabelas}
+
+\chapterquote{``Acima de tudo, mostre os dados.''}{Edward R. Tufte}
+
+Tabelas são elementos essenciais para a organização e apresentação de dados em documentos técnicos e científicos. O \LaTeX{} oferece um sistema flexível para criar tabelas com controle preciso sobre alinhamento, bordas, espaçamento e personalização. Este capítulo aborda a sintaxe do ambiente \texttt{tabular}, explicando como estruturar e formatar tabelas de maneira eficiente.
+
+% --------
+
+\section{Tabelas básicas com \texttt{tabular}}
+\label{sec:cap3_tabelas_básicas_com_tabular} % Referência cruzada para esta seção
+
+O ambiente \verb|tabular| é a base para criar tabelas em \LaTeX{}, oferecendo controle sobre alinhamento e espaçamento \cite{mittelbach2004latex}.
+
+\begin{lstlisting}[language=tex, caption=Sintaxe básica para criação de tabelas]
+    \begin{tabular}{colunas}
+        Conteúdo das células & separado por & \\
+        Linhas separadas por \\ 
+    \end{tabular}
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}[language=tex, caption=Exemplo básico de tabela]
+    \begin{center}
+        \begin{tabular}{|c|c|c|}  % Colunas centralizadas (c) com bordas (|)
+            \hline
+            Nome & Idade & Cidade \\ 
+            \hline
+            João & 25 & São Paulo \\ 
+            Maria & 30 & Rio de Janeiro \\ 
+            \hline
+        \end{tabular}
+    \end{center}
+\end{lstlisting}
+
+\begin{center}
+    \begin{tabular}{|c|c|c|}  % Colunas centralizadas (c) com bordas (|)
+        \hline
+        Nome & Idade & Cidade \\ 
+        \hline
+        João & 25 & São Paulo \\ 
+        Maria & 30 & Rio de Janeiro \\ 
+        \hline
+    \end{tabular}
+\end{center}
+
+\section{Tipos de colunas}
+
+\begin{itemize}
+    \item \verb|c|: Centralizada.
+    \item \verb|l|: Alinhada à esquerda.
+    \item \verb|r|: Alinhada à direita;
+    \item \verb|||: Adiciona bordas verticais
+    \item \verb|p{largura}|: Coluna com largura fixa
+\end{itemize}
+
+\begin{lstlisting}[language=tex, caption=Exemplo com alinhamento]
+    \begin{tabular}{l r p{4cm}}
+        Nome (esquerda) & Preço (direita) & Descrição (largura fixa) \\ 
+        \hline
+        Livro & R\$ 50,00 & Um livro sobre LaTeX \\ 
+        Caneta & R\$ 2,50 & Caneta azul \\ 
+    \end{tabular}
+\end{lstlisting}
+
+\begin{tabular}{l r p{4cm}}
+    Nome (esquerda) & Preço (direita) & Descrição (largura fixa) \\ 
+    \hline
+    Livro & R\$ 50,00 & Um livro sobre \LaTeX{} \\ 
+    Caneta & R\$ 2,50 & Caneta azul \\ 
+\end{tabular}
+
+\section{Pacote \texttt{tabularx} para largura ajustável}
+
+Permite criar tabelas que se ajustam à largura do texto.
+
+\begin{lstlisting}[language=tex, caption=Uso do pacote \texttt{tabularx}]
+\begin{tabularx}{\textwidth}{|X|X|X|} % Colunas X dividem o espaço igualmente
+    \hline
+    Cabeçalho 1 & Cabeçalho 2 & Cabeçalho 3 \\ 
+    \hline
+    Texto longo que se ajusta automaticamente & Dado 2 & Dado 3 \\ 
+    \hline
+\end{tabularx}
+\end{lstlisting}
+
+
+\begin{tabularx}{\textwidth}{|X|X|X|} % Colunas X dividem o espaço igualmente
+    \hline
+    Cabeçalho 1 & Cabeçalho 2 & Cabeçalho 3 \\ 
+    \hline
+    Texto longo que se ajusta automaticamente & Dado 2 & Dado 3 \\ 
+    \hline
+\end{tabularx}
+
+
+\section{Linhas horizontais e verticais}
+
+\begin{itemize}
+    \item \verb|\hline|: Linha horizontal.
+    \item \verb|cline{i-j}|: Linha horizontal parcial.
+    \item \verb|||: Bordas verticais (ex: \texttt{|c|c|c|}).
+\end{itemize}
+
+\begin{lstlisting}[language=tex, caption=Exemplo de criação de tabela]
+    \begin{center}
+        \begin{tabular}{|l|c|r|}
+            \hline
+            \multicolumn{3}{|c|}{Título da Tabela} \\ 
+            \hline
+            Item & Quantidade & Preço \\ 
+            \cline{1-2} % Linha parcial
+            Livro & 2 & R\$ 100,00 \\ 
+            \hline
+        \end{tabular}
+    \end{center}
+\end{lstlisting}
+
+\begin{center}
+    \begin{tabular}{|l|c|r|}
+        \hline
+        \multicolumn{3}{|c|}{Título da Tabela} \\ 
+        \hline
+        Item & Quantidade & Preço \\ 
+        \cline{1-2} % Linha parcial
+        Livro & 2 & R\$ 100,00 \\ 
+        \hline
+    \end{tabular}
+\end{center}
+
+\section{Mesclando células}
+
+\begin{itemize}
+    \item \verb|\multicolumn{n}{alinhamento}{texto}|: Mescla colunas.
+    \item \verb|\multirow{n}{largura}{texto}|: Mescla linhas (requer o pacote \verb|multirow|).
+\end{itemize}
+
+\begin{lstlisting}[language=tex, caption=Exemplo de mesclagem]
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \multirow{2}{*}{Categoria} & \multicolumn{2}{c|}{Dados} \\ 
+        \cline{2-3}
+        & Produto & Preço \\ 
+        \hline
+        Livros & LaTeX Guide & R\$ 80,00 \\ 
+        \hline
+    \end{tabular}
+\end{center}
+\end{lstlisting}
+
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \multirow{2}{*}{Categoria} & \multicolumn{2}{c|}{Dados} \\ 
+        \cline{2-3}
+        & Produto & Preço \\ 
+        \hline
+        Livros & LaTeX Guide & R\$ 80,00 \\ 
+        \hline
+    \end{tabular}
+\end{center}
+
+\section{Tabelas profissionais com \texttt{booktabs}}
+
+O pacote \verb|booktabs| remove bordas excessivas e melhora a estética:
+
+\begin{lstlisting}[language=tex, caption=Exemplo de mesclagem]
+\begin{center}
+    \begin{tabular}{lcc}
+        \toprule
+        Nome & Nota 1 & Nota 2 \\ 
+        \midrule
+        João & 8,5 & 9,0 \\ 
+        Maria & 7,0 & 8,5 \\ 
+        \bottomrule
+    \end{tabular}
+\end{center}
+\end{lstlisting}
+
+\begin{center}
+    \begin{tabular}{lcc}
+        \toprule
+        Nome & Nota 1 & Nota 2 \\ 
+        \midrule
+        João & 8,5 & 9,0 \\ 
+        Maria & 7,0 & 8,5 \\ 
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+Dica: Evite usar \verb|\hline| com \verb|booktabs| para manter o estilo limpo.
+
+\section{Dicas práticas}
+
+\begin{itemize}
+    \item Pacotes úteis:
+    \begin{lstlisting}[language=tex, caption=Pacotes úteis e interessantes para usar com tabelas]
+    \usepackage{array}       % Mais controle sobre colunas
+    \usepackage{graphicx}    % Inserir imagens em células
+    \end{lstlisting}
+    \item Erros comuns:
+    \begin{itemize}
+        \item Esquecer de adicionar \& entre células.
+        \item Usar \verb|\\| no final da última linha (desnecessário).
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+\noindent\textbf{Transição para o próximo capítulo:}\\[1ex]
+Agora que você aprendeu a organizar e formatar tabelas de forma clara e elegante, no Capítulo~\ref{cap:4_manip_img} vamos mergulhar na Manipulação de Imagens em \LaTeX{}. Você descobrirá como inserir, ajustar e posicionar imagens de modo que elas complementem e enriqueçam seus documentos.
+    

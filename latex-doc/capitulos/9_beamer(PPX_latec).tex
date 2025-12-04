@@ -1,0 +1,186 @@
+\chapter{Apresentações com Beamer}\label{cap:9_beamer(PPX_latec)}
+
+\chapterquote{``O design não é apenas o que se vê e se sente, mas como funciona.''}{Steve Jobs}
+
+O LaTeX também pode ser utilizado para criar apresentações dinâmicas e profissionais por meio da classe \texttt{beamer}. Com um sistema modular e personalizável, o Beamer permite a construção de slides que mantêm a consistência visual e a clareza na exposição do conteúdo. Este capítulo explora a estrutura básica de uma apresentação e as principais opções de personalização disponíveis.
+
+Para incorporar tabelas em apresentações, consulte o \autoref{cap:3_tabelas}. Caso precise incluir equações matemáticas, veja o \autoref{cap:5_Exp_matematica}. Além disso, gráficos gerados no LaTeX são abordados no \autoref{cap:8_graf_diagra}.
+
+% --------
+
+\section{Vantagens}
+\label{sec:cap9_vantagens} % Referência cruzada para esta seção
+
+\begin{itemize}
+    \item Integração perfeita com fórmulas matemáticas.
+    \item Templates prontos e altamente customizáveis.
+    \item Geração automática de handouts (versão impressa).
+\end{itemize}
+
+\begin{lstlisting}[language=tex, caption=Estrutura básica de uma apresentação]
+    \documentclass{beamer}
+    \usepackage[brazilian]{babel}
+    \usetheme{Warsaw} % Tema visual
+    \title{Título da Apresentação}
+    \author{Seu Nome}
+    \date{\today}
+    
+    \begin{document}
+    
+    % Slide de título
+    \begin{frame}
+        \titlepage
+    \end{frame}
+    
+    % Slide de conteúdo
+    \begin{frame}{Primeiro Slide}
+        \begin{itemize}
+            \item Item 1
+            \item Item 2
+            \pause % Revela os itens sequencialmente
+            \item Item 3
+        \end{itemize}
+    \end{frame}
+    
+    \end{document}
+\end{lstlisting}
+
+\begin{figure}[h!]
+  \centering
+  \includestandalone[pages=1,width=0.7\linewidth]{exemplos-beamer/estrutura-basica}
+  \caption{Estrutura básica de uma apresentação}
+\end{figure}
+
+\section{Temas e personalização}
+
+\begin{itemize}
+    \item Temas populares:
+    \begin{lstlisting}[language=tex, caption=Temas populares]
+    \usetheme{Berlin}       % Barras laterais
+    \usetheme{Darmstadt}    % Minimalista
+    \usetheme{Singapore}    % Cores suaves
+    \usetheme{Montpellier}  % Gradientes
+    \end{lstlisting}
+    \item Cores e fontes:
+    \begin{lstlisting}[language=tex, caption=Cores e fontes]
+    \usecolortheme{dolphin} % Esquema de cores
+    \usefonttheme{serif}     % Fonte serifada
+    \end{lstlisting}
+\end{itemize}
+
+\section{Seções e sumário}
+
+Adicione estruturas com seções:
+
+\begin{lstlisting}[language=tex, caption=Estrutura seccionada]
+    \section{Introdução}
+    \begin{frame}{Introdução}
+        Conteúdo da introdução...
+    \end{frame}
+    
+    \section{Resultados}
+    \begin{frame}{Resultados}
+        Gráficos e tabelas...
+    \end{frame}
+\end{lstlisting}
+
+Slide de sumário com destaque:
+
+\begin{lstlisting}[language=tex, caption=Slide de sumário]
+    \begin{frame}{Sumário}
+        \tableofcontents[currentsection] % Destaca a seção atual
+    \end{frame}
+\end{lstlisting}
+
+\section{Blocos e alertas}
+
+Destaque informações com blocos:
+
+\begin{lstlisting}[language=tex, caption=Blocos de destaque]
+    \begin{frame}{Blocos}
+        \begin{block}{Bloco Padrão}
+            Texto informativo.
+        \end{block}
+        
+        \begin{alertblock}{Alerta!}
+            Mensagem importante em vermelho.
+        \end{alertblock}
+        
+        \begin{exampleblock}{Exemplo}
+            Exemplo prático em verde.
+        \end{exampleblock}
+    \end{frame}
+\end{lstlisting}
+
+\section{Inserindo gráficos e animações}
+
+Animações simples com \verb|\pause|
+
+\begin{lstlisting}[language=tex, caption=Gráfico animado]
+    \begin{frame}{Gráfico Animado}
+        \begin{figure}
+            \includegraphics[width=0.5\textwidth]{grafico1.png}
+            \pause
+            \caption{Gráfico revelado após um clique.}
+        \end{figure}
+    \end{frame}
+\end{lstlisting}
+
+Overlays complexos com \verb|\uncover|
+
+\begin{lstlisting}[language=tex, caption=Overlays complexos]
+    \begin{frame}{Revelação Progressiva}
+        \begin{itemize}
+            \item<1-> Primeiro ponto (visível desde o início)
+            \item<2-> Segundo ponto (visível no segundo clique)
+            \item<3-> Terceiro ponto (visível no terceiro clique)
+        \end{itemize}
+    \end{frame}
+\end{lstlisting}
+
+\section{Recursos avançados}
+
+Adicione um logotipo no rodapé:
+
+\begin{lstlisting}[language=tex, caption=Logotipo no rodapé]
+    \logo{\includegraphics[height=0.8cm]{logo.png}}
+\end{lstlisting}
+
+Footline personalizado:
+
+\begin{lstlisting}[language=tex, caption=Footline customizado]
+    \setbeamertemplate{footline}{
+        \hfill\insertauthor\quad\insertshorttitle\quad\insertframenumber
+    }
+\end{lstlisting}
+
+\section{Dicas práticas}
+
+\begin{itemize}
+    \item Compile com a opção \verb|handout| para gerar versões impressas:
+    \begin{lstlisting}[language=tex, caption=Versão impressa]
+    \documentclass[handout]{beamer}
+    \usepackage{pgfpages}
+    \pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm]
+    \end{lstlisting} 
+    \item Pacotes úteis:
+    \begin{lstlisting}[language=tex, caption=Pacotes úteis]
+    \usepackage{hyperref} % Links clicáveis
+    \usepackage{tcolorbox} % Caixas estilizadas
+    \end{lstlisting} 
+    \item Recursos adicionais:
+    \begin{itemize}
+        \item Templates do overleaf: \href{https://www.overleaf.com/latex/templates/tagged/presentation}{modelos prontos para apresentações}.
+        \item \href{https://linorg.usp.br/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{Documentação oficial - manual do Beamer}.
+    \end{itemize}
+    \item Erros comuns:
+    \begin{itemize}
+        \item Esquecer de fechar ambientes (\verb|frame|, \verb|block|).
+        \item Usar \verb|\pause| excessivamente (pode distrair o público).
+    \end{itemize}
+    
+\end{itemize}
+
+\bigskip
+\noindent\textbf{Considerações Finais:}\\[1ex]
+Agora que você compreendeu a criação de apresentações profissionais com o Beamer, esperamos que este livro tenha contribuído para ampliar seus conhecimentos em \LaTeX{}. Continue praticando e explorando as inúmeras possibilidades que esta ferramenta oferece para transformar suas ideias em documentos e apresentações impactantes!
