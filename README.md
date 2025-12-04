@@ -2,10 +2,14 @@
 
 # 📘 The Overleafify Project
 
+### Desenvolvido para SIEEL & IEEE Student Branch USP São Carlos
+
 [![LaTeX](https://img.shields.io/badge/LaTeX-008080?style=for-the-badge&logo=latex&logoColor=white)](https://www.latex-project.org/)
 [![Overleaf](https://img.shields.io/badge/Overleaf-47A141?style=for-the-badge&logo=overleaf&logoColor=white)](https://www.overleaf.com/)
 [![License: Open](https://img.shields.io/badge/License-Open-blue.svg?style=for-the-badge)](LICENSE)
-[![IEEE](https://img.shields.io/badge/IEEE-00629B?style=for-the-badge&logo=ieee&logoColor=white)](https://ieee.org/)
+
+[![SIEEL](https://img.shields.io/badge/∫IEEL-black?style=for-the-badge)](https://sieel.eesc.usp.br/)
+[![IEEE](https://img.shields.io/badge/IEEE-00629B?style=for-the-badge)](https://ieee.org/)
 
 *Um guia prático e acessível para dominar LaTeX e Overleaf*
 
@@ -65,13 +69,45 @@ O livro está organizado em capítulos progressivos, cobrindo desde fundamentos 
 
 ---
 
+## 🎤 Apresentação do Minicurso
+
+A apresentação em **Beamer** utilizada durante o minicurso está disponível no repositório! Ela contém slides sobre todos os tópicos abordados, exemplos práticos e exercícios.
+
+### 📂 Conteúdo da Apresentação
+
+| Seção | Tópico |
+|-------|--------|
+| 1️⃣ | Introdução ao LaTeX |
+| 2️⃣ | Tipos de Documentos |
+| 3️⃣ | Formatação de Texto |
+| 4️⃣ | Tabelas, Figuras e Matemática |
+| 5️⃣ | Bibliografia e Citações |
+| 6️⃣ | Modelos e Relatórios |
+| 7️⃣ | Exercícios Práticos |
+| 8️⃣ | Dúvidas e Dicas Finais |
+| 9️⃣ | Convite Sanca Week |
+
+### 🎨 Como Usar a Apresentação
+
+**No seu computador:**
+```bash
+cd apresentacao-minicurso
+pdflatex main.tex
+```
+
+**No Overleaf:**
+- Faça upload da pasta `apresentacao-minicurso/` completa
+- Compile o `main.tex`
+
+---
+
 ## 🚀 Como Usar
 
 ### Opção 1: Compilar Localmente
 
 Você pode compilar o documento LaTeX localmente no seu computador:
 
-\\\ash
+```bash
 # Clone o repositório
 git clone https://github.com/FatsyAlst/the-overleafify-project.git
 cd the-overleafify-project
@@ -84,15 +120,26 @@ pdflatex main.tex
 bibtex main
 pdflatex main.tex
 pdflatex main.tex
-\\\
+```
 
 ### Opção 2: Usar no Overleaf
 
-1. Faça upload de todos os arquivos da pasta \latex-doc/\ para um novo projeto no [Overleaf](https://www.overleaf.com)
-2. Compile o arquivo \main.tex\
+1. Faça upload de todos os arquivos da pasta `latex-doc/` para um novo projeto no [Overleaf](https://www.overleaf.com)
+2. Compile o arquivo `main.tex`
 3. Explore e modifique conforme necessário!
 
-### Opção 3: Download Direto
+### Opção 3: Apresentação do Minicurso
+
+A apresentação utilizada durante o minicurso está disponível na pasta `apresentacao-minicurso/`:
+
+```bash
+cd apresentacao-minicurso
+pdflatex main.tex
+```
+
+Ou use no [Overleaf](https://www.overleaf.com) fazendo upload dos arquivos.
+
+### Opção 4: Download Direto
 
 *Em breve: PDF compilado disponível para download direto*
 
@@ -100,10 +147,10 @@ pdflatex main.tex
 
 ## 🛠️ Estrutura do Repositório
 
-\\\
+```
 the-overleafify-project/
 │
-├── latex-doc/                    # Código-fonte LaTeX
+├── latex-doc/                    # Código-fonte do livro
 │   ├── capitulos/                # Capítulos do livro
 │   │   ├── 1_typer_doc_struct.tex
 │   │   ├── 2_text_formatacao.tex
@@ -123,28 +170,41 @@ the-overleafify-project/
 │   ├── apendice.tex              # Apêndice
 │   └── referencias.bib           # Bibliografia
 │
+├── apresentacao-minicurso/       # Apresentação Beamer do minicurso
+│   ├── main.tex                  # Arquivo principal da apresentação
+│   ├── content/                  # Configurações e cabeçalho
+│   ├── sections/                 # Seções da apresentação
+│   └── images/                   # Imagens da apresentação
+│
 └── README.md                     # Este arquivo
-\\\
+```
 
 ---
 
 ## 👥 Autores
 
+<div align="center">
+
 <table>
   <tr>
     <td align="center">
       <a href="https://github.com/FatsyAlst">
-        <img src="https://github.com/FatsyAlst.png" width="100px;" alt="Felipe Silva"/><br />
+        <img src="https://github.com/FatsyAlst.png" width="100px;" alt="Felipe Silva" style="border-radius:50%"/><br />
         <sub><b>Felipe Silva</b></sub>
       </a><br />
       <sub>Co-autor & Instrutor</sub>
     </td>
     <td align="center">
-      <sub><b>Yuri Thadeu</b></sub><br />
+      <a href="https://github.com/YuriThadeu">
+        <img src="https://github.com/YuriThadeu.png" width="100px;" alt="Yuri Thadeu" style="border-radius:50%"/><br />
+        <sub><b>Yuri Thadeu</b></sub>
+      </a><br />
       <sub>Co-autor & Instrutor</sub>
     </td>
   </tr>
 </table>
+
+</div>
 
 ### 🏛️ Afiliação
 
@@ -192,9 +252,9 @@ O curso cobre desde fundamentos até técnicas avançadas, com foco em exercíci
 Contribuições são bem-vindas! Se você encontrou erros, tem sugestões ou quer adicionar conteúdo:
 
 1. Fork este repositório
-2. Crie uma branch para sua feature (\git checkout -b feature/MelhoriaIncrivel\)
-3. Commit suas mudanças (\git commit -m 'Adiciona MelhoriaIncrivel'\)
-4. Push para a branch (\git push origin feature/MelhoriaIncrivel\)
+2. Crie uma branch para sua feature (`git checkout -b feature/MelhoriaIncrivel`)
+3. Commit suas mudanças (`git commit -m 'Adiciona MelhoriaIncrivel'`)
+4. Push para a branch (`git push origin feature/MelhoriaIncrivel`)
 5. Abra um Pull Request
 
 ---
@@ -211,37 +271,76 @@ Este livro é distribuído sob uma **licença aberta**. A cópia, reprodução e
 
 Para dúvidas, sugestões ou mais informações sobre o projeto:
 
-- 📫 Entre em contato através do [IEEE Student Branch USP São Carlos](https://ieee.org/)
-- 💬 Abra uma issue neste repositório
-- 🔗 Conecte-se no [LinkedIn](https://www.linkedin.com/in/felipe-silva)
+- 📷 Instagram: [@ieeeuspsc](https://www.instagram.com/ieeeuspsc/)
+- 💼 LinkedIn: [IEEE Student Branch USP São Carlos](https://www.linkedin.com/company/ieeeuspsc/)
+- 💬 Abra uma [issue neste repositório](https://github.com/FatsyAlst/the-overleafify-project/issues)
+
+**Autores:**
+- 🔗 [Felipe Silva - LinkedIn](https://www.linkedin.com/in/felipe-silva-93407b1b2/)
+- 🔗 [Yuri Thadeu - LinkedIn](https://www.linkedin.com/in/yuri-thadeu/)
 
 ---
 
 ## 🌐 English Version
 
-### About The Project
+### 📘 About The Project
 
-**The Overleafify Project** is an introductory and accessible guide to LaTeX and Overleaf, developed as teaching material for a minicourse at SIEEL and IEEE Student Branch USP São Carlos. This book covers everything from basic document structure to advanced topics like mathematical expressions, bibliographies, professional layouts, and Beamer presentations.
+**The Overleafify Project** is a practical and accessible guide to LaTeX and Overleaf, developed as teaching material for a minicourse at **SIEEL** and **IEEE Student Branch USP São Carlos**. This book empowers students and researchers to produce high-quality academic and technical documents, from beginner to advanced level.
 
-### Key Features
+### 📖 Overview
 
-- 📖 Comprehensive guide from beginner to advanced
-- 💡 Practical exercises in every chapter  
-- 🎨 Real-world academic examples
-- 🆓 Free and open access
-- 🇧🇷 Written in Brazilian Portuguese
+This comprehensive guide covers everything from basic concepts like document structure and text formatting to advanced topics including tables, images, mathematical expressions, bibliographies, and graphics. Additionally, it explores creating professional presentations with **Beamer** and customizing layouts for specific project needs. With practical examples, exercises, and useful tips, this guide aims to help newcomers master these tools efficiently, making scientific documentation clearer, more organized, and aesthetically appealing.
 
-### Contents
+### 🎯 Objectives
 
-9 progressive chapters covering:
-- Document types and structure
-- Text formatting
-- Tables and figures
-- Mathematical expressions
-- Bibliography management
-- Professional layouts
-- Graphics and diagrams
-- Beamer presentations
+- ✅ Introduce fundamental LaTeX concepts
+- ✅ Provide practical exercises to consolidate learning
+- ✅ Demonstrate real applications in academic documents
+- ✅ Teach professional presentation creation with Beamer
+- ✅ Enable autonomous production of technical documents
+
+### 📚 Book Contents
+
+The book is organized in progressive chapters, covering from fundamentals to advanced techniques:
+
+| # | Topic | Description |
+|---|-------|-------------|
+| 1️⃣ | **Document Types & Structure** | Understanding classes, preamble, and organization |
+| 2️⃣ | **Text Formatting** | Fonts, styles, lists, and alignment |
+| 3️⃣ | **Tables** | Creating and formatting professional tables |
+| 4️⃣ | **Image Manipulation** | Insertion, positioning, and references |
+| 5️⃣ | **Mathematical Expressions** | Equations, symbols, and math environments |
+| 6️⃣ | **Bibliographies & Citations** | Reference management with BibTeX |
+| 7️⃣ | **Professional Layouts** | Customization and advanced templates |
+| 8️⃣ | **Graphics & Diagrams** | TikZ and data visualization |
+| 9️⃣ | **Beamer (Presentations)** | Professional slides in LaTeX |
+
+### 📦 Additional Content
+
+- **Preface**: Project context and motivation
+- **Introduction**: TeX vs LaTeX, WYSIWYG vs WYSIWYM
+- **Appendix**: Complementary resources and references
+- **Practical examples**: Ready-to-use code
+- **Solved exercises**: Material for guided practice
+
+### 🎯 Who Is This For?
+
+- 📚 **University students** starting with academic writing
+- 🔬 **Researchers** producing papers and theses
+- 👨‍🎓 **Undergraduate research students** learning technical documentation
+- 💼 **Professionals** working with technical documentation
+- 🎓 **Anyone** interested in learning LaTeX from scratch
+
+### 🌟 Key Features
+
+| Feature | Description |
+|---------|-------------|
+| 📘 **Didactic** | Accessible and progressive language |
+| 💡 **Practical** | Hands-on exercises in each chapter |
+| 🎨 **Visual** | Visual examples and well-formatted content |
+| 🆓 **Free** | Open and freely accessible material |
+| 🇧🇷 **Portuguese** | Content in Brazilian Portuguese |
+| ⚡ **Complete** | From basics to advanced in one guide |
 
 ---
 

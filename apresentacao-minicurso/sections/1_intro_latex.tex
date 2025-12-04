@@ -1,0 +1,108 @@
+%____________________________________________________________
+%____________________________________________________________
+\section{O que é \LaTeX{}?}
+
+\begin{frame}{Requisitos}
+  \begin{block}{Preciso instalar o \LaTeX{}?}
+    \begin{itemize}
+      \item \textbf{Se você optar por compiladores online, \textbf{não}}: Dessa forma, toda a compilação ocorre na nuvem, entre alguns exemplos temos o Overleaf, Crixet e TexPage.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+%-------------------------------
+
+\begin{frame}{Layout do Overleaf}
+
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/overleaf.png}
+    \label{fig:overleaf}
+  \end{figure}
+
+\end{frame}
+
+\begin{frame}{Layout do Crixet}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/crixet.jpeg}
+    \label{fig:crixet}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Layout do TexPage}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/texpage.jpg}
+    \label{fig:texpage}
+  \end{figure}
+\end{frame}
+
+%-------------------------------
+
+\begin{frame}{Requisitos}
+  \begin{block}{Preciso instalar o \LaTeX{}?}
+    \begin{itemize}
+      \item \textbf{Se você precisar trabalhar off‑line, \textbf{sim}}: Distribuições como \emph{TeXLive} (Linux, macOS, Windows) e \emph{MiKTeX} (Windows) permitem compilar localmente, instalar pacotes fora do padrão ou usar scripts que demandam acesso ao sistema de arquivos.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Compiladores Offline}
+  \begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+      \includegraphics[width=\textwidth]{images/TeX-Live.png}
+      \caption{Interface Tex-Live}
+      \label{fig:Tex-Live}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+      \includegraphics[width=\textwidth]{images/miktex.png}
+      \caption{Interface MikTex}
+      \label{fig:MikTex}
+    \end{subfigure}
+    \label{fig:compi_off}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Requisitos}
+  \begin{block}{Preciso saber programar?}
+    \begin{itemize}
+      \item \textbf{Não}. Para 90\% dos usuários, \LaTeX{} se comporta como uma
+        \emph{linguagem de marcação} (pense no Markdown do GitHub): você descreve
+        estrutura e deixa o motor tipográfico formatar o documento
+        automaticamente.
+
+      \item \textbf{Quando “vira programação”?}
+        Só ao criar pacotes, macros complexas ou gráficos
+        \texttt{TikZ}. A rotina de TCCs, relatórios e artigos usa
+        comandos prontos e dispensa lógica de \texttt{if}, \texttt{else} e semelhantes.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Histórico}
+  \begin{block}{De onde vem o \LaTeX{}?}
+    \begin{itemize}
+      \item Origens acadêmicas em meados dos anos 70.
+      \item Baseado no \TeX{} de Donald Knuth
+      \item Desenvolvido inicialmente por Leslie Lamport.
+    \end{itemize}
+  \end{block}
+
+  O \LaTeX{} é como se fosse o \TeX{} em alto nível. Assim, podemos focar no conteúdo, enquanto o software se encarrega da formatação.
+\end{frame}
+
+\begin{frame}{Word (e outros) vs \LaTeX{}}
+
+  \begin{block}{What You See Is What You Mean (WYSIWYM)}
+    O usuário define a estrutura e o conteúdo, e a formatação é gerenciada automaticamente pelo sistema.
+  \end{block}
+
+  A principal vantagem desse modelo é a divisão entre o conteúdo e a aparência do documento. %%% Em documentos longos, isso pode ser um problema, pois qualquer alteração em uma única parte do documento pode desconfigurar todo o restante.
+
+  %%% No LaTeX, um documento inteiro pode ser reformatado inteiramente apenas mudando algumas configurações no preâmbulo. Também existem várias coisas que são feitas de forma automática, como a numeração de figuras, tabelas e equações e o gerenciamento automático de referências e bibliografia. Claro, fora o fato de que fazer seu documento no LaTeX dá a ele uma qualidade tipográfica e visual únicos.
+
+\end{frame}

@@ -1,0 +1,96 @@
+\section{Formatação de texto}
+
+\begin{frame}[fragile]{Formatação básica}
+  \begin{itemize}
+    \item \textbf{Negrito}: \verb|\textbf{Texto em negrito}|
+
+      \begin{itemize}
+        \item O comando de atalho é geralmente: \textbf{CTRL + B}
+      \end{itemize}
+
+    \item \textit{Itálico}: \verb|\textit{Texto em itálico}|
+
+      \begin{itemize}
+        \item O comando de atalho é geralmente: \textbf{CTRL + I}
+      \end{itemize}
+
+    \item \underline{Sublinhado}: \verb|\underline{Texto sublinhado}|
+
+      \begin{itemize}
+        \item O comando de atalho é geralmente: \textbf{CTRL + U}
+      \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Tamanhos de fonte}
+  \begin{block}{Pré-definidos}
+    Do menor ao maior: \texttt{\textbackslash tiny}, \texttt{\textbackslash scriptsize}, \texttt{\textbackslash footnotesize}, \texttt{\textbackslash small}, \texttt{\textbackslash normalsize}, \texttt{\textbackslash large}, \texttt{\textbackslash Large}, \texttt{\textbackslash LARGE}, \texttt{\textbackslash huge}, \texttt{\textbackslash Huge}
+  \end{block}
+
+  \begin{block}{Específico}
+    \texttt{\{\textbackslash fontsize\{size\}\{skip\}\textbackslash selectfont Texto aqui\}}
+  \end{block}
+
+  \begin{block}{Exemplos}
+    \begin{itemize}
+      \item {\fontsize{10}{12}\selectfont Texto aqui}
+      \item {\tiny tiny}, {\scriptsize scriptsize}, {\footnotesize footnotesize}, {\small small}, {\normalsize normalsize}, {\large large}, {\Large Large}, {\LARGE LARGE}, {\huge huge}, {\Huge Huge}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cores no texto}
+  Usamos o pacote \verb|xcolor|:
+    \begin{lstlisting}[language=tex, caption=Uso do pacote \texttt{xcolor} para customização de cores no texto]
+        \usepackage{xcolor}
+        \textcolor{red}{Texto vermelho}
+        \textcolor{blue}{Texto azul}
+        \textcolor[HTML]{00FF00}{Verde em hexadecimal}
+    \end{lstlisting}
+
+  \textcolor{red}{Texto vermelho}
+  \textcolor{blue}{Texto azul}
+  \textcolor[HTML]{00FF00}{Verde em hexadecimal}
+\end{frame}
+
+\begin{frame}[fragile]{Listas}
+    \begin{lstlisting}[language=tex]
+        \begin{enumerate}
+            \item Primeiro item
+            \item Segundo item
+        \end{enumerate}
+    \end{lstlisting}
+
+  \begin{enumerate}
+    \item Primeiro item
+    \item Segundo item
+  \end{enumerate}
+
+    \begin{lstlisting}[language=tex]
+        \begin{itemize}
+            \item Item com marcador padrão
+            \item Outro item
+        \end{itemize}
+    \end{lstlisting}
+
+  \begin{itemize}
+    \item Item com marcador padrão
+    \item Outro item
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Quebras de linha, parágrafos e espaçamentos}
+
+  \begin{block}{Exemplos}
+    \begin{itemize}
+      \item Quebra de linha: \texttt{\textbackslash\textbackslash} ou \texttt{\textbackslash newline}
+      \item Novo parágrafo: Deixe uma linha vazia no código ou use \texttt{\textbackslash par}
+      \item Espaçamento vertical: \texttt{\textbackslash vspace\{1cm\}}
+      \item Espaçamento horizontal: \texttt{\textbackslash hspace\{2em\}}
+      \item Pular pagina: \texttt{\textbackslash newpage}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
