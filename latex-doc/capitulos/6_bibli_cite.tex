@@ -1,0 +1,97 @@
+\chapter{Bibliografia e citações em LaTeX}\label{cap:6_bibli_cite}
+
+\chapterquote{``Se pude ver mais longe foi por estar apoiado sobre os ombros de gigantes.''}{Isaac Newton}
+
+A correta citação de referências e a organização da bibliografia são essenciais para a produção de documentos acadêmicos e científicos. O \LaTeX{} oferece ferramentas robustas para gerenciar referências de forma automatizada, garantindo precisão e padronização. O gerenciamento de referências no LaTeX é amplamente facilitado pelo uso de BibTeX e BibLaTeX \cite{overleaf2022guide}.
+
+Estudos recentes destacam o impacto do \LaTeX{} na produção de trabalhos científicos e acadêmicos, demonstrando sua importância na automatização da formatação e na confiabilidade das citações \cite{gilbert2020latex}.
+
+Nos capítulos anteriores, abordamos tabelas (\autoref{cap:3_tabelas}) e, futuramente, gráficos (\autoref{cap:8_graf_diagra}) e apresentações (\autoref{cap:9_beamer(PPX_latec)}), que frequentemente requerem referências bem estruturadas.
+
+% --------
+
+\section{Introdução ao gerenciamento de referências}
+\label{sec:cap6_introdução_ao_gerenciamento_de_referências} % Referência cruzada para esta seção
+
+O \LaTeX{} oferece ferramentas robustas para a criação e o gerenciamento automatizado de referências bibliográficas, assegurando consistência e padronização em documentos acadêmicos.
+
+Para realizar uma citação no \LaTeX — seja de uma tabela, imagem ou referência bibliográfica — é necessário, primeiramente, criar um marcador, ou label, que permitirá fazer referência a esse elemento ao longo do texto. No caso de imagens e tabelas, os labels funcionam como apelidos que identificam esses objetos, possibilitando sua citação precisa no conteúdo.
+
+Já para referências bibliográficas (como livros, artigos, sites e revistas), é considerada uma boa prática utilizar um arquivo .bib. Esse arquivo, conforme detalhado no Capítulo \ref{cap:6.6_bib}, armazena os dados das fontes utilizadas e permite que o \LaTeX gere automaticamente tanto as citações ao longo do texto quanto a lista final de referências. Ressalta-se que esse mecanismo é exclusivo para referências textuais, não se aplicando a figuras ou tabelas.
+
+\section{Citações básicas}
+
+Use o comando \verb|\cite{citação}| para citar uma referência.
+
+\begin{lstlisting}[language=tex, caption=Exemplo simples de citação]
+    Segundo \cite{einstein}, a teoria da relatividade...
+\end{lstlisting}
+
+\section{Criando uma bibliografia manual}
+
+Para documentos pequenos, use o ambiente \verb|thebibliography|:
+
+\begin{lstlisting}[language=tex, caption=Equação inline]
+    \begin{thebibliography}{9} % O número 9 indica a largura máxima de rótulos
+        \bibitem{einstein}  
+            Einstein, A. (1905).  
+            \textit{Zur Elektrodynamik bewegter Körper}.  
+            Annalen der Physik, 17(10), 891-921.  
+    \end{thebibliography}
+\end{lstlisting}
+
+\section{Usando o BibTeX (Recomendado)}\label{cap:6.6_bib}
+
+O \textbf{BibTeX} automatiza a criação de bibliografias. Siga os passos:
+
+\begin{enumerate}
+    \item Crie um arquivo \verb|.bib| (ex: \verb|referencias.bib|) com entradas no formato:
+    \begin{lstlisting}[language=tex, caption=Exemplo de formatação em um arquivo \texttt{.bib}]
+    @article{einstein1905,
+        author  = "Albert Einstein",
+        title   = "Zur Elektrodynamik bewegter Körper",
+        journal = "Annalen der Physik",
+        year    = "1905",
+        volume  = "322",
+        pages   = "891--921"
+    }
+    \end{lstlisting}
+
+    \item Inclua o arquivo no documento:
+    \begin{lstlisting}[language=tex, caption=Incluindo o arquivo de bibliografias no documento]
+    \bibliographystyle{plain} % Estilo (ex: abnt, ieee, apa)
+    \bibliography{referencias} % Nome do arquivo .bib (sem extensão)
+    \end{lstlisting}
+\end{enumerate}
+
+\section{Estilos de citação}
+
+Altere o estilo com \verb|\bibliographystyle|:
+
+\begin{itemize}
+    \item \verb|plain|: Numérico (padrão).
+    \item \verb|abnt|: Normas ABNT (requer o pacote \verb|abntex2|).
+    \item \verb|apa|: Formato APA.
+    \item \verb|ieee|: Padrão IEEE.
+\end{itemize}
+
+\begin{lstlisting}[language=tex, caption=Definindo o estilo da bibliografia]
+    \bibliographystyle{ieee}  
+    \bibliography{referencias}  
+\end{lstlisting}
+
+\section{Dicas práticas}
+\begin{itemize}
+    \item \textbf{Zotero + Better BibTeX}: Exporte referências diretamente para \verb|.bib|.
+    \item \textbf{JabRef}: Editor gratuito para gerenciar arquivos \verb|.bib|.
+    \item \textbf{DOI para BibTeX}: Sites como \href{https://www.doi2bib.org/}{doi2bib} convertem DOIs em entradas BibTeX.
+    \item Erros comuns:
+    \begin{itemize}
+        \item Referência não aparece: Verifique se a chave em \verb|\cite{citação}| corresponde à entrada no arquivo \verb|.bib|.
+        \item Estilo incorreto: Confira se o estilo desejado e adequado está instalado.
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+\noindent\textbf{Transição para o próximo capítulo:}\\[1ex]
+Após consolidar o uso de referências e citações, no Capítulo~\ref{cap:7_layout_profissional} você aprenderá a aplicar layouts profissionais que proporcionarão um acabamento refinado e elegante aos seus documentos.

@@ -1,0 +1,133 @@
+\documentclass[10pt, openany, a5paper]{book} % Define um documento do tipo "livro", com fonte 10pt, formato A5 e permitindo capítulos começarem em qualquer página
+
+\input{packages} % Carregando os pacotes
+
+% --------------------------------------------------------
+% ------------------------ CITAÇÕES ----------------------
+% --------------------------------------------------------
+
+% Comando para citação de abertura de capítulo com autor
+\newcommand{\chapterquote}[2]{
+  \begin{center}
+    \small\textit{#1} \\ % A citação
+    \vspace{0.5em} % Espaço entre a citação e o autor
+    \small\textsc{--- #2} % O autor em small caps
+  \end{center}
+  \vspace{1em} % Espaçamento após a citação
+}
+
+% --------------------------------------------------------
+% ------------------------ AMBIENTES ---------------------
+% --------------------------------------------------------
+
+% Contadores para cada tipo de ambiente
+\newcounter{exercisecounter}
+\newcounter{solutioncounter}
+
+\newtcolorbox[auto counter]{exercisebox}[1][]{%
+    beamer,
+    enhanced, breakable, colback=white, % cor de fundo branca
+    arc=5pt, outer arc=5pt,
+    boxrule=0.5pt, colframe=black, % borda
+    fontlower=\itshape,
+    before=\vspace{2mm}, after=\vspace{2mm}, % Adiciona margem superior e inferior
+    title={\small Questão~\thetcbcounter. #1}, % Adiciona o título com o contador e texto manual
+    coltitle=white, % Define a cor do título para preto
+}
+
+\newtcolorbox[auto counter]{solutionbox}[1][]{%
+	beamer,
+    enhanced, breakable, colback=gray!10, colframe=gray!10,
+    arc=10pt, outer arc=10pt,
+    boxrule=0pt,
+    before=\vspace{2mm}, after=\vspace{2mm},
+    title={\small \textsc{Solução~\thetcbcounter}},
+    coltitle=black, % Adiciona o título com o contador
+    #1
+}
+
+\newtcolorbox{highlightbox}[1][]{%
+	beamer,
+    enhanced, breakable, colback=gray!10, colframe=gray!10, % cor de fundo atualizada para gray!10
+    arc=0pt, outer arc=0pt,
+    boxrule=0pt,
+    before=\vspace{2mm}, after=\vspace{2mm},
+    fonttitle=\bfseries\scshape, % Define o título em negrito e small caps
+    coltitle=black, % Define a cor do título como preta
+    #1}
+
+% --------------------------------------------------------
+% ------------------------ SUMÁRIO ---------------------
+% --------------------------------------------------------
+
+\addto\captionsportuguese{
+  \renewcommand{\contentsname}{\hfill\bfseries\huge Sumário \hfill}   
+}
+\renewcommand{\cfttoctitlefont}{\hfill\bfseries\huge}
+\renewcommand{\cftaftertoctitle}{\hfill\break\vspace{10pt}}
+
+% Define o símbolo de quadrado preenchido
+\newcommand{\filledsquare}{{\tikz{\node[fill=black,rectangle,minimum size=0.2cm] {};}}\hspace{0.5em}}
+
+% Títulos de capítulos em negrito no sumário com o símbolo
+\renewcommand{\cftchapfont}{\bfseries\large\filledsquare}
+
+\begin{document}
+
+% Primeira página com a imagem como background
+\AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{capa.png}} % Substitua "capa.png" pelo nome real do arquivo da imagem
+\begin{titlepage}
+    \null % Adiciona um espaço vazio para que a imagem possa ser exibida corretamente
+\end{titlepage}
+\ClearShipoutPictureBG % Limpa o background da próxima página
+
+\clearpage % Começa uma nova página para o conteúdo do livro
+
+\thispagestyle{empty} % No page number on this page
+\centering
+
+\vspace{1cm} % Ajuste o espaço conforme necessário
+
+{\Large\bfseries\textsc{\MakeUppercase{The Overleafify Project}}}\\[1cm]
+
+{\large\textsc{Felipe Silva \& Yuri Thadeu}}\\
+{IEEE Student Branch USP São Carlos}\\[20mm]  
+\flushleft
+\begin{minipage}{\textwidth}
+
+\textsc{Resumo.} Este livro é um guia prático e acessível para iniciantes no uso do \LaTeX{} e do Overleaf, ferramentas essenciais para a produção de documentos acadêmicos e técnicos de alta qualidade. Abordamos desde os conceitos básicos, como a estrutura de documentos e formatação de texto, até tópicos avançados, incluindo a criação de tabelas, inserção de imagens, expressões matemáticas, bibliografias e gráficos. Além disso, exploramos a criação de apresentações profissionais com o Beamer e a personalização de layouts para atender às necessidades específicas de cada projeto. Com exemplos práticos, exercícios e dicas úteis, este guia visa capacitar os novos ingressantes a dominar essas ferramentas de forma eficiente, tornando a documentação científica mais clara, organizada e esteticamente atraente.
+\end{minipage}\\[1cm]   
+\vfill
+    \begin{center}
+        Edição: 1.0  \\
+    	\textit{Copyright \copyright 2025 \\ IEEE Student Branch USP São Carlos.}
+    \end{center}
+    \begin{center}
+    	\textit{Este livro é distribuído sob uma licença aberta. A cópia, reprodução e compartilhamento são permitidos, desde que sejam mantidos os créditos aos autores.}
+    \end{center}
+\clearpage % Assegura que a próxima seção comece em uma nova página
+
+\setcounter{page}{1} % Reseta o contador de páginas para o conteúdo principal
+
+\thispagestyle{empty}
+\tableofcontents
+
+\include{prefacio}
+\include{introducao}
+\include{capitulos/1_typer_doc_struct}
+\include{capitulos/2_text_formatacao}
+\include{capitulos/3_tabelas}
+\include{capitulos/4_manip_img}
+\include{capitulos/5_Exp_matematica}
+\include{capitulos/6_bibli_cite}
+\include{capitulos/7_layout_profissional}
+\include{capitulos/8_graf_diagra}  
+\include{capitulos/9_beamer(PPX_latec)}
+
+\bibliographystyle{alpha} % Estilo 
+\bibliography{referencias} 
+    
+\newpage
+\input{apendice}
+
+\end{document}

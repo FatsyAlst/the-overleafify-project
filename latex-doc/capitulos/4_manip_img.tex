@@ -1,0 +1,124 @@
+\chapter{Inserção e ajuste de Imagens em LaTeX}\label{cap:4_manip_img}
+
+\chapterquote{``Uma imagem vale mais que mil palavras.''}{Fred R. Barnard}
+
+A inserção de imagens é um aspecto fundamental na produção de documentos acadêmicos e técnicos. O \LaTeX{} permite manipular gráficos e figuras de maneira precisa, garantindo um posicionamento adequado e compatibilidade com diferentes formatos. Este capítulo apresenta o uso do pacote \verb|graphicx|, explicando como importar, redimensionar e posicionar imagens corretamente.
+
+Caso precise gerar gráficos diretamente no \LaTeX{}, veja o \autoref{cap:8_graf_diagra}, que apresenta os pacotes \verb|TikZ| e \verb|pgfplots|.
+
+% --------
+
+\section{Introdução ao pacote \texttt{graphicx}}
+\label{sec:cap4_introdução_ao_pacote_graphicx} % Referência cruzada para esta seção
+
+O pacote \verb|graphicx| é essencial para inserir imagens \cite{overleaf2022guide}. Carregue-o no pré-âmbulo:
+
+\begin{lstlisting}[language=tex, caption=Carregue o pacote \texttt{graphicx}]
+    \usepackage{graphicx} % Sempre adicione isso!
+\end{lstlisting}
+
+Formato de imagens suportados:
+\begin{itemize}
+    \item \textbf{Overleaf}: \verb|PNG|, \verb|JPG|, \verb|PDF| (evite \verb|SVG|, a menos que convertido.)
+    \item \textbf{LaTeX offline}: \verb|PDF|, \verb|EPS|, \verb|PNG|, \verb|JPG|
+\end{itemize}
+
+\section{Inserindo imagens básicas}
+
+Use \verb|\includegraphics| para adicionar uma imagem:
+
+\begin{lstlisting}[language=tex, caption=Inserindo uma imagem]
+    \includegraphics[width=0.5\textwidth]{caminho/para/imagem.png}  
+\end{lstlisting}
+
+\section{Redimensionamento e escala}
+
+\begin{itemize}
+    \item Largura fixa: \verb|width=8cm|.
+    \item Altura fixa: \verb|height=4cm|.
+    \item Escala proporcional: \verb|scale=0.7|.
+    \item Rotação: \verb|angle=45|
+\end{itemize}
+
+\begin{lstlisting}[language=tex, caption=Exemplo de customização do tamanho e ângulo de imagem]
+    \includegraphics[width=5cm, angle=30]{imagem.jpg}  
+\end{lstlisting}
+
+
+\section{Posicionamento com o ambiente \texttt{figure}}
+
+O ambiente \verb|figure| permite controle profissional sobre posição, legendas e referências:
+
+\begin{lstlisting}[language=tex, caption=Exemplo de customização do tamanho e ângulo de imagem]
+    \begin{figure}[h!] % Opções: h (aqui), t (topo), b (base), p (página separada)
+        \centering
+        \includegraphics[width=0.4\textwidth]{imagens/sapo.jpg}
+        \caption{Imagem da capa do livro} % Legenda
+        \label{fig:sapodacapa} % Rótulo para referência
+    \end{figure}
+\end{lstlisting}
+
+\begin{figure}[h!] % Opções: h (aqui), t (topo), b (base), p (página separada)
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagens/sapo.jpg}
+    \caption{Imagem da capa do livro} % Legenda
+    \label{fig:sapodacapa} % Rótulo para referência
+\end{figure}
+
+\section{Múltiplas imagens em uma figura}
+
+Use o pacote \verb|subcaption| para criar subfiguras:
+
+\begin{lstlisting}[language=tex, caption=Exemplo de customização do tamanho e ângulo de imagem]
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{imagem1.jpg}
+        \caption{Primeira imagem}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{imagem2.jpg}
+        \caption{Segunda imagem}
+    \end{subfigure}
+    \caption{Conjunto de imagens}
+    \label{fig:duas-imagens}
+\end{figure}
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{imagens/sapo1.jpg}
+        \caption{Primeira imagem}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{imagens/sapo2.jpg}
+        \caption{Segunda imagem}
+    \end{subfigure}
+    \caption{Conjunto de imagens}
+    \label{fig:duas-imagens}
+\end{figure}
+
+\newpage
+
+\section{Dicas práticas}
+\begin{itemize}
+    \item Armazene as imagens em uma pasta chamada \verb|imagens| e use:
+    \begin{lstlisting}[language=tex, caption=Exemplo de customização do tamanho e ângulo de imagem]
+    \graphicspath{{imagens/}} % Define o caminho padrão
+    \includegraphics{logo} % Busca por "logo.png" ou "logo.jpg"
+    \end{lstlisting}
+    \item Erros comuns:
+    \begin{itemize}
+        \item Imagem não aparece: Verifique o caminho do arquivo e certifique que o pacote \verb|graphicx| está carregado.
+        \item Legenda fora do lugar: Use \verb|\centering| dentro do ambiente \verb|figure|.
+        \item Formato não suportado: Converta a imagem para um dos formatos suportados. 
+    \end{itemize}
+    
+\end{itemize}
+
+\bigskip
+\noindent\textbf{Transição para o próximo capítulo:}\\[1ex]
+Após aprender a inserir e ajustar imagens para enriquecer seus documentos, no Capítulo~\ref{cap:5_Exp_matematica} você explorará Expressões Matemáticas, onde serão abordadas a formatação e a inserção de equações e símbolos essenciais para a elaboração de textos acadêmicos.

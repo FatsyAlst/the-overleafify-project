@@ -1,0 +1,191 @@
+\chapter{Expressões matemáticas}\label{cap:5_Exp_matematica}
+
+\chapterquote{``A matemática é o alfabeto com o qual Deus escreveu o universo.''}{Galileo Galilei}
+
+A escrita de expressões matemáticas no \LaTeX{} proporciona um alto nível de precisão e clareza \cite{knuth1984texbook} na apresentação de equações e fórmulas. Com suporte nativo a operadores, símbolos e estruturas complexas, o \LaTeX{} é amplamente utilizado em publicações científicas e acadêmicas. Este capítulo explora os diferentes modos matemáticos e os comandos essenciais para a formatação de expressões matemáticas.
+
+% --------
+
+\section{Modos matemáticos}
+\label{sec:cap5_modos_matemáticos} % Referência cruzada para esta seção
+
+\begin{itemize}
+    \item Inline (dentro do texto): Use \verb|\(...\)| ou \verb|$...$|:
+    \begin{lstlisting}[language=tex, caption=Equação inline]
+    A equação \(E = mc^2\) foi proposta por Einstein.
+    \end{lstlisting}
+    Saída: A equação \(E = mc^2\) foi proposta por Einstein.
+    \item Display: Use \verb|\[...\]| ou \verb|$$...$$|:
+    \begin{lstlisting}[language=tex, caption=Equação display]
+    A fórmula da energia é:
+    \[E = mc^2\]
+    \end{lstlisting}
+    Saída: \[E = mc^2\]
+\end{itemize}
+
+\section{Símbolos básicos}
+
+\begin{itemize}
+    \item Letras gregas: \verb|\alpha|, \verb|\beta|, \verb|\gamma|, \verb|\Gamma|, \verb|\Delta|, \verb|\Omega|
+    \(\alpha\), \(\beta\), \(\gamma\), \(\Gamma\), \(\Delta\), \(\Omega\)
+    \item Operadores e relações: \verb|\times| (multiplicação), \verb|\pm| (mais/menos), \verb|\leq| (menor ou igual), \verb|\geq| (maior ou igual)
+    \(\times\), \(\pm\), \(\leq\), \(\geq\)
+    \item Setas e símbolos lógicos: \verb|\leftarrow|, \verb|\Leftarrow|, \verb|\rightarrow|, \verb|\Rightarrow|, \verb|\exists| (existe), \verb|\forall| (para todo)
+    \(\leftarrow\), \(\Leftarrow\), \(\rightarrow\), \(\Rightarrow\), \(\exists\), \(\forall\)
+\end{itemize}
+
+Para mais símbolos matemáticos, vide a tabela \ref{tab:simbolos} no apêndice.
+
+\section{Frações, expoentes e índices}
+
+\begin{itemize}
+    \item Frações:
+    \begin{lstlisting}[language=tex, caption=Frações em LaTeX]
+    \begin{center}
+        \(\frac{a}{b}\)\\
+    \end{center}
+    \[\dfrac{a}{b}\] (uso em display mode)
+    \end{lstlisting}
+    \begin{center}
+        \(\frac{a}{b}\)\\
+    \end{center}
+    \[\dfrac{a}{b}\]
+\end{itemize}
+
+Use \verb|dfrac{a}{b}| para o modo display - o tamanho fica maior.
+
+\section{Matrizes e vetores}
+
+\begin{itemize}
+    \item Matrizes simples:
+    \begin{lstlisting}[language=tex, caption=Matriz simples]
+    \[
+    \begin{matrix}
+    1 & 2 \\
+    3 & 4
+    \end{matrix}
+    \]
+    \end{lstlisting}
+    \[
+    \begin{matrix}
+    1 & 2 \\
+    3 & 4
+    \end{matrix}
+    \]
+
+    \item Matrizes com parênteses (usando \verb|pmatrix|):
+    \begin{lstlisting}[language=tex, caption=Matriz com parênteses]
+    \[
+    \begin{pmatrix}
+    a & b \\
+    c & d
+    \end{pmatrix}
+    \]
+    \end{lstlisting}
+    \[
+    \begin{pmatrix}
+    a & b \\
+    c & d
+    \end{pmatrix}
+    \]    
+
+    \item Matrizes com colchetes (usando \verb|bmatrix|):
+    \begin{lstlisting}[language=tex, caption=Matriz com colchetes]
+    \[
+    \begin{bmatrix}
+    X & Y \\
+    Z & W
+    \end{bmatrix}
+    \]
+    \end{lstlisting}
+    \[
+    \begin{bmatrix}
+    X & Y \\
+    Z & W
+    \end{bmatrix}
+    \] 
+\end{itemize}
+
+\section{Ambientes avançados}
+
+\begin{itemize}
+    \item Equações numeradas:
+    \begin{lstlisting}[language=tex, caption=Equação numerada]
+    \begin{equation}
+        \label{eq:energia}
+        E = mc^{2}
+    \end{equation}
+    \end{lstlisting}
+    \begin{equation}
+        \label{eq:energia}
+        E = mc^{2}
+    \end{equation}
+
+    \item Alinhamento de equações (ambiente \verb|align|):
+    \begin{lstlisting}[language=tex, caption=Equações alinhadas]
+    \begin{align}
+        x & + y = 5 \\
+        2x - y = 3 &
+    \end{align}
+    \end{lstlisting}
+    \begin{align}
+        x & + y = 5 \\
+        2x - y = 3 &
+    \end{align}
+\end{itemize}
+
+Para não enumerar as equações, use o ambiente \verb|align*|:
+
+\begin{lstlisting}[language=tex, caption=Equações alinhadas e não enumeradas]
+\begin{align*}
+    x & + y = 5 \\
+    2x - y = 3 &
+\end{align*}
+\end{lstlisting}
+\begin{align*}
+    x & + y = 5 \\
+    2x - y = 3 &
+\end{align*}
+
+\section{Sistemas de equações}
+
+Use o ambiente \verb|cases| (requer o pacote \verb|amsmath|):
+
+\begin{lstlisting}[language=tex, caption=Sistema de equações]
+    \[
+    f(x) = 
+    \begin{cases}
+    x^{2} & \text{se } x \geq 0 \\
+    -x & \text{se } x < 0
+    \end{cases}
+    \]
+\end{lstlisting}
+
+\[
+f(x) = 
+\begin{cases}
+x^{2} & \text{se } x \geq 0 \\
+-x & \text{se } x < 0
+\end{cases}
+\]
+
+\section{Dicas práticas}
+
+\begin{itemize}
+    \item Pacote essencial:
+    \begin{lstlisting}[language=tex, caption=Carregue o pacote \texttt{amsmath}]
+    \usepackage{amsmath} % Carregue sempre!
+    \end{lstlisting}
+    \item Erros comuns:
+    \begin{itemize}
+        \item Esquecer de usar \verb|\| antes de símbolos especiais (ex: \verb|\alpha|, não \verb|alpha|).
+        \item Não fechar chaves em expoentes/subscritos (ex: \verb|x^{2}| em vez de \verb|x^2|).
+    \end{itemize}
+\end{itemize}
+
+Dica: Use o \href{https://detexify.kirelabs.org/classify.html}{Detexify} para encontrar símbolos matemáticos desconhecidos!
+
+\bigskip
+\noindent\textbf{Transição para o próximo capítulo:}\\[1ex]
+Após explorar e praticar as expressões matemáticas, no Capítulo~\ref{cap:6_bibli_cite} você aprenderá a organizar e formatar suas referências bibliográficas, utilizando ferramentas que facilitam a citação e a formatação da bibliografia em LaTeX.
+

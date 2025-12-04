@@ -1,0 +1,204 @@
+\chapter{Texto e formatação}
+\label{cap:2_text_formatacao}
+
+\chapterquote{``A mente que se abre a uma nova ideia jamais voltará ao seu tamanho original.''}{Albert Einstein}
+
+A formatação de texto no \LaTeX{} permite a criação de documentos com estrutura profissional e padronizada. Recursos como negrito, itálico, sublinhado e espaçamento adequado são essenciais para organizar o conteúdo e destacar informações importantes. Segundo Mittelbach et al., a estruturação do texto no \LaTeX{} segue rigorosos padrões tipográficos que garantem clareza e precisão \cite{mittelbach2004latex}.
+
+
+O \LaTeX{} permite uma formatação de texto estruturada, facilitando a organização de documentos acadêmicos \cite{mittelbach2004latex}.
+
+% --------
+
+\section{Formatação básica}
+\label{sec:cap2_formatação_básica} % Referência cruzada para esta seção
+
+\begin{itemize}
+    \item \textbf{Negrito}: \verb|\textbf{Texto em negrito}|
+    \item \textit{Itálico}: \verb|\textit{Texto em itálico}|
+    \item \underline{Sublinhado}: \verb|\underline{Texto sublinhado}|
+\end{itemize}
+
+\begin{lstlisting}[language=tex, caption=Formatação básica de texto]
+    \textbf{Importante}: \textit{Não esqueça} de \underline{revisar} o código.
+\end{lstlisting}
+
+O código acima gera como saída:\\
+
+\textbf{Importante}: \textit{Não esqueça} de \underline{revisar} o código.
+
+\section{Tamanhos da fonte}
+
+Tamanhos pré-definidos (do menor ao maior):
+{\tiny tiny}  
+{\scriptsize scriptsize}  
+{\footnotesize footnotesize}  
+{\small small}  
+{\normalsize normalsize}  
+{\large large}  
+{\Large Large}  
+{\LARGE LARGE}  
+{\huge huge}  
+{\Huge Huge}
+
+\begin{lstlisting}[language=tex, caption=Tamanhos de fontes pré-definidos]
+    {\tiny Texto pequeno}  
+    {\scriptsize Um pouco maior}  
+    {\footnotesize Notas de rodapé}  
+    {\small Pequeno}  
+    {\normalsize Normal}  
+    {\large Grande}  
+    {\Large Maior}  
+    {\LARGE Muito grande}  
+    {\huge Enorme}  
+    {\Huge Gigante}  
+\end{lstlisting}
+
+Dica: Use a forma com \{…\} sempre que quiser limitar o efeito do comando de tamanho a um trecho:
+
+\begin{lstlisting}[language=tex, caption=Tamanhos de fontes pré-definidos aplicado apenas no trecho entre chaves]
+    {\large Este texto é apenas grande aqui}
+\end{lstlisting}
+
+Ele volta automaticamente ao padrão ao fechar as chaves.\\
+
+Se você usar o comando como declaração solta:
+
+\begin{lstlisting}[language=tex, caption=Tamanho de fonte como declaração solta]
+    \large
+    Texto fica grande até aqui.
+    \normalsize
+\end{lstlisting}
+
+é preciso chamar \verb|\normalsize| para retomar o tamanho normal após o bloco.\\
+
+Em suma:
+
+\begin{lstlisting}[language=tex, caption=Resumo sobre a dinâmica de tamanho de fontes]
+    \documentclass{article}
+    \begin{document}
+    
+    % 1) Com escopo em chaves: volta sozinho
+    Antes {\huge Muito grande} Depois\\
+    
+    % 2) Declaração solta: precisa de \normalsize
+    \huge
+    Este parágrafo fica grande até aqui.\\
+    
+    \normalsize % volta ao tamanho "normal"
+    Agora está normal de novo.\\
+    
+    \end{document}
+\end{lstlisting}
+
+% 1) Com escopo em chaves: volta sozinho
+Antes {\huge Muito grande} Depois\\
+
+% 2) Declaração solta: precisa de \normalsize
+\huge
+Este parágrafo fica grande até aqui.\\
+
+\normalsize % volta ao tamanho "normal"
+Agora está normal de novo.\\
+
+\section{Cores no texto}
+
+Use o pacote \verb|xcolor|:
+
+\begin{lstlisting}[language=tex, caption=Uso do pacote \texttt{xcolor} para customização de cores no texto]
+    \usepackage{xcolor}  
+    \textcolor{red}{Texto vermelho}  
+    \textcolor{blue}{Texto azul}  
+    \textcolor[HTML]{00FF00}{Verde em hexadecimal}  
+\end{lstlisting}
+
+\textcolor{red}{Texto vermelho}  
+\textcolor{blue}{Texto azul}  
+\textcolor[HTML]{00FF00}{Verde em hexadecimal}  
+
+\section{Listas}
+
+\subsection{Listas enumeradas - ambiente \texttt{enumerate}}
+
+\begin{lstlisting}[language=tex, caption=Listas enumeradas]
+    \begin{enumerate}
+        \item Primeiro item
+        \item Segundo item
+    \end{enumerate} 
+\end{lstlisting}
+
+\begin{enumerate}
+    \item Primeiro item
+    \item Segundo item
+\end{enumerate}
+
+\subsection{Listas não enumeradas - ambiente \texttt{itemize}}
+
+\begin{lstlisting}[language=tex, caption=Listas não enumeradas]
+    \begin{itemize}
+        \item Item com marcador padrão
+        \item Outro item
+    \end{itemize}
+\end{lstlisting}
+
+\begin{itemize}
+    \item Item com marcador padrão
+    \item Outro item
+\end{itemize}
+
+\subsection{Listas descritivas - ambiente \texttt{description}}
+
+\begin{lstlisting}[language=tex, caption=Listas descritivas]
+    \begin{description}
+        \item[\LaTeX] Sistema de preparação de documentos.
+        \item[Overleaf] Plataforma online para LaTeX.
+    \end{description}
+\end{lstlisting}
+
+\begin{description}
+    \item[\LaTeX] Sistema de preparação de documentos.
+    \item[Overleaf] Plataforma online para \LaTeX{}.
+\end{description}
+
+Dica: Use o pacote \verb|enumitem| para personalizar marcadores e espaçamento.
+
+\section{Espaçamento e parágrafos}
+\begin{itemize}
+    \item Quebra de linha: \verb|\\| ou \verb|\newline|
+    \item Novo parágrafo: Deixe uma linha vazia no código ou use \verb|\par|.
+    \item Espaçamento vertical: \verb|\vspace{1cm}|
+    \item Espaçamento horizontal: \verb|\hspace{2em}|
+\end{itemize}
+
+\begin{lstlisting}[language=tex, caption=Exemplo de espaçamento e parágrafos]
+    Primeira linha.\\ Segunda linha.  
+    \par Terceira linha (novo parágrafo).
+\end{lstlisting}
+
+Primeira linha.\\ Segunda linha.  
+\par Terceira linha (novo parágrafo).
+
+% \section{Espaçamento entre linhas}
+
+% Use o pacote \verb|setspace|:
+
+\section{Dicas práticas}
+
+\begin{itemize}
+    \item Pacotes úteis:
+    \begin{lstlisting}[language=tex, caption=Outros pacotes úteis para texto e formatação]
+    \usepackage{lipsum}   % Gerar texto aleatório para testes
+    \usepackage{hyperref} % Links clicáveis
+    \end{lstlisting}
+    \item Erros comuns:
+    \begin{itemize}
+        \item Esquecer de fechar chaves \verb|{}| após comandos de formatação.
+        \item Usar \verb|\\| excessivamente (pode causar layout quebrado).
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+\noindent\textbf{Transição para o próximo capítulo:}\\[1ex]
+Agora que você já dominou os conceitos básicos apresentados neste capítulo, no Capítulo~\ref{cap:3_tabelas} vamos colocar em prática a formatação de tabelas. Você aprenderá a criar, ajustar e personalizar tabelas para organizar dados de forma clara e eficiente – um recurso essencial para documentos bem estruturados.
+
+

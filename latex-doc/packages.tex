@@ -1,0 +1,167 @@
+% NOME DO PDF %
+% \usepackage[
+%   pdftitle={The Overleafify Project}
+% ]{hyperref}
+
+
+% COMANDOS PARA \LaTeX\ E \TeX\ COM ESPAÇAMENTO AUTOMÁTICO
+%-------------------------------------------------------
+\usepackage{xspace}  % Carrega o pacote xspace, que insere automaticamente um espaço após macros
+\newcommand{\LaTeXcmd}{\LaTeX\xspace} % Define \LaTeXcmd como um atalho para \LaTeX, e usa \xspace para adicionar um espaço quando o próximo caractere for alfanumérico, evitando precisar escrever {} ou \, toda vez.
+\newcommand{\TeXcmd}{\TeX\xspace} % Define \TeXcmd análogo a \LaTeXcmd, mas para o logo \TeX.
+
+% FORMATO DE PÁGINA E LÍNGUA
+%--------------------------------------------------------
+\usepackage[a5paper,top=1.5cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry} 
+% Define margens e tamanho da página em formato A5
+
+\usepackage[utf8]{inputenc}   % Suporte a caracteres especiais (acentuação, ç, etc.) no código fonte
+\usepackage[T1]{fontenc}      % Melhora o suporte de hifenização e acentuação na saída do PDF
+\usepackage[brazilian]{babel} % Adapta o documento para o português (traduções de nomes e hifenização)
+
+% PACOTES MATEMÁTICOS E FONTES
+%--------------------------------------------------------
+\usepackage{amsmath, amsthm, amssymb} % Pacotes para equações, símbolos matemáticos e ambientes teorema
+\usepackage{fouriernc}               % Usa a fonte "Fourier New Century" com bom suporte para matemática
+
+% IMAGENS E GRÁFICOS
+%--------------------------------------------------------
+\usepackage{graphicx} % Permite inserir imagens
+    \graphicspath{{imagens/}} % Define o caminho padrão das imagens
+
+% CORES PERSONALIZADAS
+%--------------------------------------------------------
+\usepackage[dvipsnames]{xcolor} % Fornece uma paleta de cores estendida
+    \definecolor{mygreen}{rgb}{0,0.6,0}    % Verde personalizado
+    \definecolor{mygray}{rgb}{0.5,0.5,0.5} % Cinza personalizado
+    \definecolor{mymauve}{rgb}{0.58,0,0.82} % Roxo (malva) personalizado
+
+% GERAÇÃO DE TEXTO FICTÍCIO
+%--------------------------------------------------------
+\usepackage{lipsum} % Gera texto fictício para testes (ex: \lipsum[1-2])
+
+% COMPILAÇÃO EXTERNA DOS CÓDIGOS BEAMER
+%--------------------------------------------------------
+\usepackage[mode=buildnew]{standalone} % compila se o PDF estiver desatualizado
+% ou ainda: \usepackage[mode=buildmissing]{standalone}
+
+% SUMÁRIO PERSONALIZADO
+%--------------------------------------------------------
+\usepackage{tocloft} % Permite personalizar o sumário (estilo, títulos, etc.)
+
+% TIKZ E PACOTES PARA DIAGRAMAS E GRÁFICOS
+%--------------------------------------------------------
+\usepackage{tikz}           % Pacote principal para gráficos vetoriais
+\usepackage{pgfplots}       % Gráficos de funções e dados
+\usepackage{pgfplotstable}  % Leitura e plotagem de tabelas de dados
+    \usetikzlibrary{shapes, arrows.meta, positioning, backgrounds} % Bibliotecas do TikZ para formas, setas e posicionamento
+    \pgfplotsset{compat=newest} % Usa a versão mais recente do PGFPlots
+    \usetikzlibrary{shapes.geometric, calc, arrows, shapes, trees} % Mais formas, cálculos e árvores
+    \usetikzlibrary{arrows.meta} % Estilo de setas mais moderno
+
+\usepackage{tikz-3dplot} % Permite desenhar em 3D com o TikZ
+
+% CAIXAS COLORIDAS PERSONALIZADAS (EX: para exercícios)
+%--------------------------------------------------------
+\usepackage[most]{tcolorbox} % Criação de caixas coloridas avançadas
+\tcbuselibrary{skins,raster} % Adiciona efeitos visuais e layouts em grade para tcolorbox
+
+% FÍSICA E FERRAMENTAS MATEMÁTICAS ADICIONAIS
+%--------------------------------------------------------
+\usepackage{physics} % Facilita a digitação de expressões físicas (ex: \dv, \qty, etc.)
+
+% ELEMENTOS NO FUNDO DA PÁGINA (EX: CAPA COM IMAGEM)
+%--------------------------------------------------------
+\usepackage{eso-pic} % Permite adicionar elementos gráficos ao fundo da página (ex: \AddToShipoutPicture)
+
+% ALINHAMENTO DE TEXTO
+%--------------------------------------------------------
+\usepackage{ragged2e} % Permite usar comandos como \justifying, \RaggedRight
+
+% MÚLTIPLAS COLUNAS
+%--------------------------------------------------------
+\usepackage{multicol} % Permite dividir texto em várias colunas
+
+% LISTAS PERSONALIZADAS
+%--------------------------------------------------------
+\usepackage[shortlabels]{enumitem} % Criação de listas com rótulos personalizados (como [a], [i], etc.)
+
+% AMBIENTE PARA CÓDIGO-FONTE
+%--------------------------------------------------------
+\usepackage{listings} % Permite incluir e formatar código-fonte
+    \lstset{
+        language=tex,               % Linguagem usada no código (aqui: LaTeX)
+        basicstyle=\ttfamily\small, % Fonte monoespaçada pequena
+        keywordstyle=\color{blue},  % Cor das palavras-chave
+        commentstyle=\color{gray},  % Cor dos comentários
+        stringstyle=\color{red},    % Cor das strings
+        frame=single,               % Moldura em volta do código
+        breaklines=true,            % Quebra linhas automaticamente
+        captionpos=b                % Posição da legenda (b = abaixo)
+    }
+
+\renewcommand{\lstlistingname}{Código} % Muda o nome padrão de "Listing" para "Código"
+    % Suporte para acentuação correta dentro do ambiente de código
+    \lstset{
+        literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+                 {ã}{{\~a}}1 {õ}{{\~o}}1 {â}{{\^a}}1 {ê}{{\^e}}1 {ô}{{\^o}}1
+                 {À}{{\`A}}1 {à}{{\`a}}1 {ü}{{\"u}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1
+                 {ö}{{\"o}}1
+    }
+
+% ESPAÇAMENTO ENTRE LINHAS
+%--------------------------------------------------------
+\usepackage{setspace} % Permite usar \singlespacing, \onehalfspacing, \doublespacing
+
+% TABELAS AVANÇADAS
+%--------------------------------------------------------
+\usepackage{tabularx}   % Tabelas com largura ajustável
+\usepackage{multirow}   % Mescla de células em linhas diferentes
+\usepackage{booktabs}   % Regras horizontais com aparência profissional
+\usepackage{subcaption} % Permite usar subfiguras dentro de uma figura
+
+% HIPERLINKS E NAVEGAÇÃO
+%--------------------------------------------------------
+\usepackage{hyperref} % Permite a criação de links clicáveis
+    \definecolor{mylinkcolor}{HTML}{2D4802} % Cor dos links internos (sumário, referências)
+    \definecolor{mycitecolor}{HTML}{8EB12D} % Cor dos links de citação
+    \definecolor{myurlcolor}{HTML}{638204}  % Cor dos links externos (URLs)
+
+    \hypersetup{
+      linkcolor  = mylinkcolor,
+      citecolor  = mycitecolor,
+      urlcolor   = myurlcolor,
+      colorlinks = true       % Ativa links coloridos (sem molduras)
+    }
+% REFERÊNCIAS INTELIGENTES
+%--------------------------------------------------------
+\usepackage{cleveref} % Melhora as referências cruzadas (ex: "ver Capítulo 3" automaticamente)
+
+% CRIAÇÃO DE ARQUIVOS EMBUTIDOS
+%--------------------------------------------------------
+\usepackage{filecontents} % Permite criar arquivos diretamente no .tex (útil para bib ou dados)
+
+% ÍCONES (EX: redes sociais, símbolos visuais)
+%--------------------------------------------------------
+\usepackage{fontawesome5} % Permite usar ícones como \faGithub, \faEnvelope, etc.
+
+% EFEITO DE SOMBRA EM OBJETOS TIKZ
+\usetikzlibrary{shadows.blur} % Permite adicionar sombra borrada nos gráficos TikZ
+
+% CAIXAS COM LARGURA VARIÁVEL
+%--------------------------------------------------------
+\usepackage{varwidth} % Permite criar caixas que ajustam sua largura ao conteúdo
+
+% Tabelas personalizadas
+%------------------------------------------------------
+\usepackage{longtable}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{gensymb} %usei para adicionar o simbolo de graus na tabela
+\usepackage{array}
+\usepackage{lscape} % Opcional: útil se quiser girar a tabela
+
+
+
+% Define um novo tipo de coluna para texto com quebra automática
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}

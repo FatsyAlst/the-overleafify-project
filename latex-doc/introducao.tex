@@ -1,0 +1,116 @@
+\pagestyle{empty} % Remove cabeçalho e rodapé
+
+\chapter*{Introdução}
+\justify
+\addcontentsline{toc}{chapter}{Introdução}
+
+A escrita acadêmica exige documentos bem estruturados, claros e organizados, especialmente em publicações científicas, teses e relatórios. Ferramentas convencionais de edição de texto nem sempre oferecem a precisão e o controle necessários para lidar com referências, equações matemáticas e formatação avançada.
+
+O \LaTeX{} surgiu como uma solução para esses desafios, permitindo a produção de documentos com qualidade tipográfica superior, automação de citações e numeração eficiente de figuras e tabelas. Hoje, ele é amplamente adotado em diversas áreas acadêmicas e tornou-se um padrão para publicações técnicas e científicas.
+
+\section*{\TeX{} vs \LaTeX{}: qual a diferença?}
+
+Antes de aprofundarmos o estudo do \LaTeX{}, é importante entender sua origem. O \textbf{\TeX{}} foi criado por Donald Knuth na década de 1970 com o objetivo de fornecer um sistema preciso e de alta qualidade para composição tipográfica de textos científicos e matemáticos. No entanto, por ser uma ferramenta de \textit{baixo nível}, seu uso exigia um grande conhecimento técnico.
+
+O \textbf{\LaTeX{}} desenvolvido por Leslie Lamport nos anos 1980, é uma camada de alto nível sobre o \TeX{}, que simplifica seu uso e estrutura os documentos de maneira mais intuitiva. Com o \LaTeX{}, o usuário pode se concentrar no \textit{conteúdo}, enquanto o software se encarrega da formatação.
+
+\section*{Por que \LaTeX{} e não Word ou outras ferramentas?}
+
+Muitos usuários iniciantes questionam por que aprender \LaTeX{} se existem ferramentas como Microsoft Word e Google Docs, que possuem interfaces gráficas mais amigáveis. A resposta está na diferença fundamental entre dois modelos de edição de texto:
+
+\begin{itemize}
+  \item \textbf{WYSIWYG (What You See Is What You Get)}: Modelos como Word e Google Docs seguem esse princípio, onde o usuário edita o documento visualmente e a formatação é ajustada manualmente.
+  \item \textbf{WYSIWYM (What You See Is What You Mean)}: O \LaTeX{} segue esse paradigma, onde o usuário define a estrutura e o conteúdo, e a formatação é gerenciada automaticamente pelo sistema.
+\end{itemize}
+
+\subsection*{Por que o WYSIWYM do \LaTeX{} é uma melhor escolha?}
+
+A principal vantagem do modelo WYSIWYM é a separação entre o conteúdo e a aparência do documento. No Word, por exemplo, o usuário precisa constantemente ajustar margens, fontes, espaçamentos e outros elementos visuais. Isso pode ser um problema em documentos longos, pois qualquer alteração pode desorganizar a estrutura do texto.
+
+No \LaTeX{}, a formatação é definida de maneira centralizada e padronizada. Isso significa que um documento pode ser reformatado inteiramente apenas mudando algumas configurações no preâmbulo, sem a necessidade de ajustar cada elemento manualmente. Essa abordagem garante mais consistência e evita erros comuns de formatação.
+
+Outro ponto relevante é a produtividade. Como o usuário escreve o conteúdo sem se preocupar com a estética, o fluxo de escrita se torna mais eficiente. Além disso, recursos como referências automáticas, numeração correta de figuras e fórmulas matemáticas integradas tornam o \LaTeX{} a melhor opção para trabalhos acadêmicos e técnicos.
+
+\subsection*{Benefícios do \LaTeX{}, sobre editores tradicionais}
+
+\begin{itemize}
+  \item \textbf{Consistência tipográfica}: O LaTeX garante que o documento tenha um estilo uniforme, sem necessidade de ajustes manuais de formatação.
+  \item \textbf{Gerenciamento automático de referências e bibliografia}: Ferramentas como BibTeX permitem organizar e citar fontes de maneira automatizada.
+  \item \textbf{Numeração automática de figuras, tabelas e equações}: Diferente do Word, onde esses elementos precisam ser ajustados manualmente.
+  \item \textbf{Alta qualidade tipográfica}: Textos em \LaTeX{} possuem uma apresentação mais profissional.
+  \item \textbf{Suporte nativo a fórmulas matemáticas}: Essencial para áreas como Matemática, Engenharia e Física.
+\end{itemize}
+
+\section*{\LaTeX{} na comunidade acadêmica e profissional}
+
+O \LaTeX{} não é usado apenas por acadêmicos; ele se tornou um padrão na produção de documentos em diversas áreas:
+
+\begin{itemize}
+  \item \textbf{Ciências Exatas e Engenharia}: Matemáticos, físicos e engenheiros utilizam o \LaTeX{} para escrever artigos científicos, \textit{papers} e teses.
+  \item \textbf{Publicação Científica}: Revistas como IEEE, ACM e Springer exigem que os artigos sejam submetidos em \LaTeX{}.
+  \item \textbf{Economia e Ciências Sociais}: Pesquisadores dessas áreas utilizam \LaTeX \,para artigos e relatórios devido à sua eficiência na formatação e referência cruzada.
+  \item \textbf{Publicação de Livros e Relatórios Técnicos}: Editoras utilizam o \LaTeX \,para garantir formatação padronizada e profissional.
+\end{itemize}
+
+Além disso, repositórios acadêmicos como \textbf{arXiv} e \textbf{Overleaf} popularizaram ainda mais seu uso, permitindo a colaboração em tempo real na produção de documentos.
+
+\section*{O ambiente de trabalho no \LaTeX{}}
+
+O \LaTeX{} pode ser utilizado em diferentes ambientes, dependendo das preferências do usuário:
+
+\begin{itemize}
+  \item \textbf{Compiladores Offline}: Softwares como MikTeX e TeX Live permitem compilar documentos no próprio computador.
+  \item \textbf{Plataformas Online}: Serviços como Overleaf oferecem uma solução baseada na nuvem, permitindo colaboração e edição simultânea.
+\end{itemize}
+
+Neste livro, nosso foco será no uso do \textbf{Overleaf}, uma das plataformas mais acessíveis e fáceis de utilizar. O Overleaf elimina a necessidade de instalação local, oferece templates prontos e facilita a compilação de documentos \LaTeX{} sem necessidade de configurações complexas.
+
+\section*{Mitos e verdades sobre o \LaTeX{}}
+
+Ao longo dos anos, o \LaTeX{} colecionou certa aura de “ferramenta para iniciados”, o que acaba alimentando dúvidas e mitos entre novos usuários. Desvendamos aqui os equívocos mais comuns e explicamos por que, mesmo exigindo um investimento inicial de tempo, o \LaTeX{} continua valendo a pena para quem produz documentos técnicos e acadêmicos.
+
+\subsection*{Você nunca vai “saber tudo” — e tudo bem}
+
+O ecossistema do \LaTeX{} é construído sobre \emph{packages}. Há milhares delas, voltadas a necessidades ultra‑específicas — de diagramas de química orgânica a partituras de música barroca. Esperar dominar cada detalhe é irreal; na prática, você vai conhecer profundamente o conjunto de pacotes que usa com frequência e manter uma lista de referência para o resto. A flexibilidade que isso oferece supera a aparente complexidade inicial.
+
+\subsection*{Curva de aprendizado: quanto tempo, afinal?}
+
+Aprender \LaTeX{} exige, sim, um investimento inicial: é preciso se familiarizar com a sintaxe, o fluxo de compilação e alguns pacotes essenciais. No entanto, esse esforço logo se converte em ganho de produtividade, pois o sistema passa a cuidar da formatação enquanto você se concentra apenas no conteúdo.
+
+\begin{itemize}
+  \item No início, foque em compreender a estrutura básica de um documento e em compilar exemplos simples.
+  \item Com a prática e a repetição, os comandos tornam‑se naturais, e relatórios completos são produzidos sem ajustes manuais de formatação.
+\end{itemize}
+
+Em suma, o tempo dedicado hoje se paga rapidamente no futuro: à medida que você escreve mais, o processo se torna cada vez mais ágil e consistente — especialmente em projetos longos, nos quais a automação e a padronização fazem toda a diferença.
+
+\subsection*{O investimento se paga — e não demora tanto}
+
+Se por um lado a configuração inicial parece trabalhosa, por outro cada minuto dedicado se converte em horas economizadas em revisões futuras. Quem já perdeu um dia inteiro ajustando margens quebradas no Word costuma migrar para o \LaTeX{} depois de uma “crise de formatação”. Uma vez dominado o fluxo, tarefas como reestruturar capítulos ou padronizar citações viram comandos de poucos caracteres.
+
+\subsection*{Armadilhas de produtividade (e como evitá‑las)}
+
+O \LaTeX{} pode virar um campo minado de \emph{tweaks} estéticos: trocar fonte, alinhar vírgulas ou redesenhar a capa pode consumir tardes inteiras. Para fugir desse ciclo:
+\begin{enumerate}
+  \item Adote um \emph{template} estável e altere‑o só quando houver necessidade real.
+  \item Separe sessões de “escrita” e de “tipografia”; nunca as misture.
+  \item Mantenha um arquivo \texttt{.tex} com exemplos mínimos dos truques que você mais esquece e exemplos que você mais usa.
+\end{enumerate}
+
+\subsection*{Dicas para acelerar o aprendizado}
+
+\begin{itemize}
+  \item Comece por projetos pequenos (resumos, relatórios curtos) antes de encarar a sua dissertação.
+  \item Use a função \emph{auto‑complete} do Overleaf e escolha um tema do editor que te agrade.
+  \item Consulte comunidades online sempre que encontrar erros muito específicos.
+\end{itemize}
+
+\vfill
+\begin{center}
+  \begin{quote}
+    \emph{Aprender \LaTeX{} não é um evento pontual, mas um processo contínuo. A boa notícia é que você começa a colher os frutos muito antes de “chegar ao final” — porque, na verdade, não há final.}
+  \end{quote}
+\end{center}
+
+\clearpage
+\pagestyle{plain} % Restaura o estilo de página padrão para o restante do documento
